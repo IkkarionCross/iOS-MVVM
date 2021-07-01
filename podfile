@@ -1,0 +1,29 @@
+platform :ios, '14.5'
+use_frameworks!
+
+workspace 'flickrfrontend.xcworkspace'
+
+def networkPodsTests
+  pod 'OHHTTPStubs/Swift'
+end
+
+target 'flickrfrontend' do
+  pod 'Alamofire', '~> 5.0'
+  pod 'Kingfisher', '~> 6.3'
+end
+
+target 'flickrfrontendTests' do
+  networkPodsTests
+end
+
+target 'AppNetwork' do
+  project 'AppNetwork/AppNetwork.xcodeproj'
+  pod 'Alamofire', '~> 5.0'
+end
+
+target 'AppNetworkTests' do
+  project 'AppNetwork/AppNetwork.xcodeproj'
+  
+  pod 'Alamofire', '~> 5.0'
+  networkPodsTests
+end

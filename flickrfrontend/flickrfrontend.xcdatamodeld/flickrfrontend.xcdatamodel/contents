@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="PhotoEntity" representedClassName="PhotoEntity" syncable="YES">
+        <attribute name="id" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="page" maxCount="1" deletionRule="Nullify" destinationEntity="PhotoPageEntity" inverseName="photos" inverseEntity="PhotoPageEntity"/>
+        <relationship name="sizes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PhotoSizeEntity" inverseName="photo" inverseEntity="PhotoSizeEntity"/>
+    </entity>
+    <entity name="PhotoPageEntity" representedClassName="PhotoPageEntity" syncable="YES">
+        <attribute name="page" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="perPage" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="photos" toMany="YES" deletionRule="Cascade" destinationEntity="PhotoEntity" inverseName="page" inverseEntity="PhotoEntity"/>
+        <relationship name="search" maxCount="1" deletionRule="Nullify" destinationEntity="SearchResultEntity" inverseName="pages" inverseEntity="SearchResultEntity"/>
+    </entity>
+    <entity name="PhotoSizeEntity" representedClassName="PhotoSizeEntity" syncable="YES">
+        <attribute name="type" attributeType="String"/>
+        <attribute name="url" attributeType="String"/>
+        <relationship name="photo" maxCount="1" deletionRule="Nullify" destinationEntity="PhotoEntity" inverseName="sizes" inverseEntity="PhotoEntity"/>
+    </entity>
+    <entity name="SearchResultEntity" representedClassName="SearchResultEntity" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="searchText" attributeType="String"/>
+        <relationship name="pages" toMany="YES" deletionRule="Cascade" destinationEntity="PhotoPageEntity" inverseName="search" inverseEntity="PhotoPageEntity"/>
+    </entity>
+    <elements>
+        <element name="PhotoEntity" positionX="-54" positionY="9" width="128" height="89"/>
+        <element name="PhotoPageEntity" positionX="-45" positionY="36" width="128" height="89"/>
+        <element name="PhotoSizeEntity" positionX="-36" positionY="27" width="128" height="74"/>
+        <element name="SearchResultEntity" positionX="-63" positionY="-18" width="128" height="74"/>
+    </elements>
+</model>

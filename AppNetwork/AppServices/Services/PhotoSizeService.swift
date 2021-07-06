@@ -28,7 +28,8 @@ public class PhotoSizeService {
 
 extension PhotoSizeService: PPhotoSizeService {
     public func fetchSizes(forPhotoId photoId: String, _ completion: @escaping (Completion<[PhotoSizeEntity]>) -> Void) throws {
-        if let photoSizes = try photoDAO.photo(forId: photoId)?.sizes {
+        if let photoSizes = try photoDAO.photo(forId: photoId)?.sizes,
+           !photoSizes.isEmpty {
             return completion(.success(Array(photoSizes)))
         }
         

@@ -2,10 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:FlickrEntities/FlickrEntities.xcodeproj">
+      location = "group:AppNetwork/AppServices.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/Users/dev-victoramaro/Documents/projects/Pessoal/FlickrFrontEnd/minderachallenge/AppNetwork/AppServices.xcodeproj">
+      location = "group:FlickrEntities/FlickrEntities.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:flickrfrontend.xcodeproj">

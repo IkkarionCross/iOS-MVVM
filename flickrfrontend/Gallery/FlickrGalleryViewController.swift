@@ -69,6 +69,8 @@ class FlickrGalleryViewController: UICollectionViewController {
     }
     
     func loadImage(forCell cell: FlickrPhotoCell, inIndexPath indexPath: IndexPath) {
+        cell.clearForReuse(withPlaceHolder: placeHolderImage)
+        
         let photo = viewModel.results[indexPath.row]
         
         if let url = photo.sizes?.getPhotoSize(withType: "Large Square")?.url,

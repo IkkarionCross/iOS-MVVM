@@ -24,8 +24,6 @@
 		8AD27D29265F212C00062963 /* FlickrEntities.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD27D27265F212C00062963 /* FlickrEntities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8AD27D64265F285E00062963 /* flickrfrontend.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8AD27D62265F285E00062963 /* flickrfrontend.xcdatamodeld */; };
 		8AD27D86266068F200062963 /* FlickrPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD27D85266068F200062963 /* FlickrPhotoCell.swift */; };
-		8AD9CBA0268556CB00011343 /* TestVictorEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD9CB9E268556CB00011343 /* TestVictorEntity+CoreDataClass.swift */; };
-		8AD9CBA1268556CB00011343 /* TestVictorEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD9CB9F268556CB00011343 /* TestVictorEntity+CoreDataProperties.swift */; };
 		B6F1FBF9228C5863596F6603 /* Pods_flickrfrontend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864F22CC0E6149BA22D9CB6F /* Pods_flickrfrontend.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,8 +87,6 @@
 		8AD27D27265F212C00062963 /* FlickrEntities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FlickrEntities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AD27D63265F285E00062963 /* flickrfrontend.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = flickrfrontend.xcdatamodel; sourceTree = "<group>"; };
 		8AD27D85266068F200062963 /* FlickrPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrPhotoCell.swift; sourceTree = "<group>"; };
-		8AD9CB9E268556CB00011343 /* TestVictorEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestVictorEntity+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		8AD9CB9F268556CB00011343 /* TestVictorEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestVictorEntity+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		9B4D97060CCAD5044CBF67E1 /* Pods-flickrfrontendTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flickrfrontendTests.debug.xcconfig"; path = "Target Support Files/Pods-flickrfrontendTests/Pods-flickrfrontendTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9E91C1D4466D80E2826AEF80 /* Pods_flickrfrontendTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_flickrfrontendTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2F48D0233177310FF582F1B /* Pods-flickrfrontend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flickrfrontend.debug.xcconfig"; path = "Target Support Files/Pods-flickrfrontend/Pods-flickrfrontend.debug.xcconfig"; sourceTree = "<group>"; };
@@ -180,7 +176,6 @@
 		8AC8C860265992F0004EBC3C /* flickrfrontend */ = {
 			isa = PBXGroup;
 			children = (
-				8AD9CB692685539E00011343 /* entities */,
 				8A51DAAF265C855600D99FB9 /* Gallery */,
 				8AC8C861265992F0004EBC3C /* AppDelegate.swift */,
 				8AC8C863265992F0004EBC3C /* SceneDelegate.swift */,
@@ -217,15 +212,6 @@
 				8AC8C87B265992F9004EBC3C /* GalleryViewModelTest.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		8AD9CB692685539E00011343 /* entities */ = {
-			isa = PBXGroup;
-			children = (
-				8AD9CB9E268556CB00011343 /* TestVictorEntity+CoreDataClass.swift */,
-				8AD9CB9F268556CB00011343 /* TestVictorEntity+CoreDataProperties.swift */,
-			);
-			path = entities;
 			sourceTree = "<group>";
 		};
 		ADE0ED28E9DC8151F088C89C /* Frameworks */ = {
@@ -466,8 +452,6 @@
 				8A51DAAE265C825A00D99FB9 /* MainViewController.swift in Sources */,
 				8A51DAB2265C85B100D99FB9 /* GalleryViewModel.swift in Sources */,
 				8AC8C864265992F0004EBC3C /* SceneDelegate.swift in Sources */,
-				8AD9CBA1268556CB00011343 /* TestVictorEntity+CoreDataProperties.swift in Sources */,
-				8AD9CBA0268556CB00011343 /* TestVictorEntity+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

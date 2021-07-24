@@ -27,14 +27,17 @@ class FlickrGalleryViewController: UICollectionViewController {
         didSet {
            displayActivityIndicator()
             do {
+                collectionView.scrollToItem(at: IndexPath(row: 0, section: 0),
+                                                  at: .top,
+                                                  animated: true)
                 try viewModel.search(text: searchText) { result in
                     switch result {
                     case .success():
                         DispatchQueue.main.async { [weak self] in
+                            
+                            
                             self?.collectionView.reloadData()
-                            self?.collectionView.scrollToItem(at: IndexPath(row: 0, section: 0),
-                                                              at: .top,
-                                                              animated: true)
+                            
                             self?.hideActivityIndicator()
                         }
                     case let .failure(error):
@@ -69,8 +72,6 @@ class FlickrGalleryViewController: UICollectionViewController {
     }
     
     func loadImage(forCell cell: FlickrPhotoCell, inIndexPath indexPath: IndexPath) {
-        cell.clearForReuse(withPlaceHolder: placeHolderImage)
-        
         let photo = viewModel.getPhoto(forIndex: indexPath.row)
         
         if let url = photo.largeSquareImageUrl,
@@ -85,6 +86,7 @@ class FlickrGalleryViewController: UICollectionViewController {
                 switch result {
                 case let .success(photoSize):
                     DispatchQueue.main.async { [weak self] in
+                        guard self?.collectionView.indexPathsForVisibleItems.contains(indexPath) == true else { return }
                         if let url = URL(string: photoSize.url) {
                             cell.setImage(withUrl: url, andPlaceHolder: self?.placeHolderImage)
                         }
@@ -112,10 +114,10 @@ extension FlickrGalleryViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let photo = viewModel.getPhoto(forIndex: indexPath.row)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FlickrPhotoCell
-        cell.photoTitle.text = photo.title
+        cell.configure(withPhoto: photo, imagePlaceHolder: placeHolderImage)
         return cell
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let flickrCell = cell as! FlickrPhotoCell
         
@@ -126,7 +128,6 @@ extension FlickrGalleryViewController {
                 switch result {
                 case .success():
                     DispatchQueue.main.async { [weak self] in
-                        self?.collectionView.reloadData()
                         self?.viewModel.isLoading = false
                     }
                 case let .failure(error):

@@ -12,6 +12,11 @@ class FlickrPhotoCell: UICollectionViewCell {
     @IBOutlet weak var photoTitle: UILabel!
     @IBOutlet weak var image: UIImageView!
     
+    func configure(withPhoto photo: PhotoViewModel, imagePlaceHolder: UIImage?=nil) {
+        self.photoTitle.text = photo.title
+        image.image = imagePlaceHolder
+    }
+    
     func setImage(withUrl url: URL, andPlaceHolder placeHolder: UIImage?) {
         let imageResource = ImageResource(downloadURL: url)
         let processor = DownsamplingImageProcessor(size: image.bounds.size)
@@ -27,6 +32,6 @@ class FlickrPhotoCell: UICollectionViewCell {
     
     func clearForReuse(withPlaceHolder placeHolderImage: UIImage?) {
         image.image = placeHolderImage
-        photoTitle.text = "Titulo imagem"
+        photoTitle.text = ""
     }
 }

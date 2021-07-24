@@ -22,7 +22,7 @@ class GalleryViewModel {
     private let sizeService   : PPhotoSizeService!
     
     private var downlimit: Int {
-        return results.count - 60
+        return results.count - 80
     }
     
     var isLoading: Bool = false

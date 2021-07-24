@@ -11,10 +11,10 @@ import FlickrEntities
 
 class GalleryViewModel {
     
-    private(set) var results: [PhotoEntity] = []
-    private(set) var lastLoadedPage: Int = 1
-    private(set) var perPage: Int = 0
-    private(set) var pages: Int = 0
+    private var results: [PhotoEntity] = []
+    private var lastLoadedPage: Int = 1
+    private var perPage: Int = 0
+    private var pages: Int = 0
     
     private var lastSearchText: String
     
@@ -29,6 +29,10 @@ class GalleryViewModel {
     
     var nextPage: Int {
         return lastLoadedPage + 1
+    }
+    
+    var itemCount: Int {
+        return results.count
     }
     
     init(galleryService: PGalleryService, sizeService: PPhotoSizeService) {
@@ -50,6 +54,10 @@ class GalleryViewModel {
         self.lastLoadedPage = Int(photoPage.page)
         self.perPage = Int(photoPage.perPage)
         self.pages = 100
+    }
+    
+    func getPhoto(forIndex index: Int) -> PhotoViewModel {
+        return PhotoViewModel(photo: results[index])
     }
     
     func search(text: String, _ completion: @escaping (Completion<Void>)->Void) throws {
@@ -92,7 +100,7 @@ class GalleryViewModel {
         }
     }
     
-    func fetchLargeSquarePhotoSize(forPhoto photo: PhotoEntity, _ completion: @escaping (Completion<PhotoSizeEntity>) -> Void) throws {
+    func fetchLargeSquarePhotoSize(forPhoto photo: PhotoViewModel, _ completion: @escaping (Completion<PhotoSizeEntity>) -> Void) throws {
         try sizeService.fetchSizes(forPhotoId: photo.id) { result in
             switch result {
             case let .success(results):

@@ -71,9 +71,9 @@ class FlickrGalleryViewController: UICollectionViewController {
     func loadImage(forCell cell: FlickrPhotoCell, inIndexPath indexPath: IndexPath) {
         cell.clearForReuse(withPlaceHolder: placeHolderImage)
         
-        let photo = viewModel.results[indexPath.row]
+        let photo = viewModel.getPhoto(forIndex: indexPath.row)
         
-        if let url = photo.sizes?.getPhotoSize(withType: "Large Square")?.url,
+        if let url = photo.largeSquareImageUrl,
            ImageCache.default.isCached(forKey: url)
         {
             cell.setImage(withUrl: URL(string: url)!, andPlaceHolder: placeHolderImage)
@@ -106,11 +106,11 @@ extension FlickrGalleryViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.results.count
+        return viewModel.itemCount
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let photo = viewModel.results[indexPath.row]
+        let photo = viewModel.getPhoto(forIndex: indexPath.row)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FlickrPhotoCell
         cell.photoTitle.text = photo.title
         return cell

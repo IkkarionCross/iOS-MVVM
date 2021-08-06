@@ -23,6 +23,8 @@ class FlickrGalleryViewController: UICollectionViewController {
     
     var viewModel: GalleryViewModel!
     
+    // mover logica para dentro do viewmodel. O viewModel precisa de um delegate para aviasr ao viewcontroller para
+    // carregar os resultados
     var searchText: String = "" {
         didSet {
            displayActivityIndicator()

@@ -16,13 +16,13 @@ target 'flickrfrontendTests' do
   networkPodsTests
 end
 
-target 'AppNetwork' do
-  project 'AppNetwork/AppNetwork.xcodeproj'
+target 'AppServices' do
+  project 'AppNetwork/AppServices.xcodeproj'
   pod 'Alamofire', '~> 5.0'
 end
 
-target 'AppNetworkTests' do
-  project 'AppNetwork/AppNetwork.xcodeproj'
+target 'AppServicesTests' do
+  project 'AppNetwork/AppServices.xcodeproj'
   
   pod 'Alamofire', '~> 5.0'
   networkPodsTests

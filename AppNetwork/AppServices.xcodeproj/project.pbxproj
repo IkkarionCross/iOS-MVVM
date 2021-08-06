@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8801F462A29A453B3169173D /* Pods_AppNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E2151F10F22AF6D23309211 /* Pods_AppNetwork.framework */; };
+		513FCB88C1BBBA79F42CF000 /* Pods_AppServicesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5D2B44944650D675AD7BA8 /* Pods_AppServicesTests.framework */; };
+		5C417731B3F18B1B8DABF120 /* Pods_AppServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD4401B8CF791E870AA63AC /* Pods_AppServices.framework */; };
 		8A4BC3FE266AB6D0003433CD /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4BC3FD266AB6D0003433CD /* DataService.swift */; };
 		8AD27CC1265F1BFE00062963 /* AppServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD27CB7265F1BFD00062963 /* AppServices.framework */; };
 		8AD27CC6265F1BFE00062963 /* GalleryServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD27CC5265F1BFE00062963 /* GalleryServiceTest.swift */; };
@@ -22,7 +23,6 @@
 		8AD27CEF265F1F0F00062963 /* RESTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD27CEB265F1F0F00062963 /* RESTService.swift */; };
 		8AD27D54265F21C700062963 /* FlickrEntities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD27D53265F21C700062963 /* FlickrEntities.framework */; };
 		8AD27D55265F21C700062963 /* FlickrEntities.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD27D53265F21C700062963 /* FlickrEntities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E7E6774834DD296C0E4FF7FA /* Pods_AppNetworkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DBE4613AC8114F3EA20DBDB /* Pods_AppNetworkTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +51,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6DBE4613AC8114F3EA20DBDB /* Pods_AppNetworkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppNetworkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C3A6286555398536C8D608F /* Pods-AppServices.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppServices.release.xcconfig"; path = "Target Support Files/Pods-AppServices/Pods-AppServices.release.xcconfig"; sourceTree = "<group>"; };
+		2A5D2B44944650D675AD7BA8 /* Pods_AppServicesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppServicesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BD4401B8CF791E870AA63AC /* Pods_AppServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A4BC3FD266AB6D0003433CD /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		8AD27CB7265F1BFD00062963 /* AppServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AD27CBA265F1BFE00062963 /* AppNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppNetwork.h; sourceTree = "<group>"; };
@@ -71,9 +73,11 @@
 		8AD27D1C265F200200062963 /* Entities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Entities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AD27D24265F212100062963 /* FlickrEntities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FlickrEntities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AD27D53265F21C700062963 /* FlickrEntities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FlickrEntities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8E2151F10F22AF6D23309211 /* Pods_AppNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F9D663E7F19B7FDEBFFC171 /* Pods-AppNetwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppNetwork.debug.xcconfig"; path = "Target Support Files/Pods-AppNetwork/Pods-AppNetwork.debug.xcconfig"; sourceTree = "<group>"; };
 		9D1EF06CA8FA3A762F60C60F /* Pods-AppNetworkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppNetworkTests.debug.xcconfig"; path = "Target Support Files/Pods-AppNetworkTests/Pods-AppNetworkTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A551071853F1B1294DA8078C /* Pods-AppServicesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppServicesTests.release.xcconfig"; path = "Target Support Files/Pods-AppServicesTests/Pods-AppServicesTests.release.xcconfig"; sourceTree = "<group>"; };
+		C1E382CA9F349E72BBE132B8 /* Pods-AppServices.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppServices.debug.xcconfig"; path = "Target Support Files/Pods-AppServices/Pods-AppServices.debug.xcconfig"; sourceTree = "<group>"; };
+		E334E12F94B1B4AB06C8390A /* Pods-AppServicesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppServicesTests.debug.xcconfig"; path = "Target Support Files/Pods-AppServicesTests/Pods-AppServicesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F3C85CCAF174FBC88790F20F /* Pods-AppNetwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppNetwork.release.xcconfig"; path = "Target Support Files/Pods-AppNetwork/Pods-AppNetwork.release.xcconfig"; sourceTree = "<group>"; };
 		FC39EBDE87AE01C10360A140 /* Pods-AppNetworkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppNetworkTests.release.xcconfig"; path = "Target Support Files/Pods-AppNetworkTests/Pods-AppNetworkTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,7 +88,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AD27D54265F21C700062963 /* FlickrEntities.framework in Frameworks */,
-				8801F462A29A453B3169173D /* Pods_AppNetwork.framework in Frameworks */,
+				5C417731B3F18B1B8DABF120 /* Pods_AppServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,7 +97,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AD27CC1265F1BFE00062963 /* AppServices.framework in Frameworks */,
-				E7E6774834DD296C0E4FF7FA /* Pods_AppNetworkTests.framework in Frameworks */,
+				513FCB88C1BBBA79F42CF000 /* Pods_AppServicesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,8 +152,8 @@
 				8AD27D24265F212100062963 /* FlickrEntities.framework */,
 				8AD27D1C265F200200062963 /* Entities.framework */,
 				8AD27CD6265F1C6100062963 /* Alamofire.framework */,
-				8E2151F10F22AF6D23309211 /* Pods_AppNetwork.framework */,
-				6DBE4613AC8114F3EA20DBDB /* Pods_AppNetworkTests.framework */,
+				7BD4401B8CF791E870AA63AC /* Pods_AppServices.framework */,
+				2A5D2B44944650D675AD7BA8 /* Pods_AppServicesTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -191,6 +195,10 @@
 				F3C85CCAF174FBC88790F20F /* Pods-AppNetwork.release.xcconfig */,
 				9D1EF06CA8FA3A762F60C60F /* Pods-AppNetworkTests.debug.xcconfig */,
 				FC39EBDE87AE01C10360A140 /* Pods-AppNetworkTests.release.xcconfig */,
+				C1E382CA9F349E72BBE132B8 /* Pods-AppServices.debug.xcconfig */,
+				0C3A6286555398536C8D608F /* Pods-AppServices.release.xcconfig */,
+				E334E12F94B1B4AB06C8390A /* Pods-AppServicesTests.debug.xcconfig */,
+				A551071853F1B1294DA8078C /* Pods-AppServicesTests.release.xcconfig */,
 			);
 			name = Pods;
 			path = ../Pods;
@@ -319,7 +327,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AppNetwork-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-AppServices-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -332,15 +340,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AppNetworkTests/Pods-AppNetworkTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-AppServicesTests/Pods-AppServicesTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AppNetworkTests/Pods-AppNetworkTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-AppServicesTests/Pods-AppServicesTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppNetworkTests/Pods-AppNetworkTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppServicesTests/Pods-AppServicesTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		975FA2B72796825C0C5D92B5 /* [CP] Check Pods Manifest.lock */ = {
@@ -358,7 +366,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AppNetworkTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-AppServicesTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -526,7 +534,7 @@
 		};
 		8AD27CCC265F1BFE00062963 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8F9D663E7F19B7FDEBFFC171 /* Pods-AppNetwork.debug.xcconfig */;
+			baseConfigurationReference = C1E382CA9F349E72BBE132B8 /* Pods-AppServices.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -551,7 +559,7 @@
 		};
 		8AD27CCD265F1BFE00062963 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F3C85CCAF174FBC88790F20F /* Pods-AppNetwork.release.xcconfig */;
+			baseConfigurationReference = 0C3A6286555398536C8D608F /* Pods-AppServices.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -576,7 +584,7 @@
 		};
 		8AD27CCF265F1BFE00062963 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9D1EF06CA8FA3A762F60C60F /* Pods-AppNetworkTests.debug.xcconfig */;
+			baseConfigurationReference = E334E12F94B1B4AB06C8390A /* Pods-AppServicesTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
@@ -596,7 +604,7 @@
 		};
 		8AD27CD0265F1BFE00062963 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FC39EBDE87AE01C10360A140 /* Pods-AppNetworkTests.release.xcconfig */;
+			baseConfigurationReference = A551071853F1B1294DA8078C /* Pods-AppServicesTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;

@@ -7,7 +7,7 @@
 
 import UIKit
 import Kingfisher
- 
+
 class FlickrGalleryViewController: UICollectionViewController {
     private let reuseIdentifier = "FlickrCell"
     private let itemsPerRow: CGFloat = 2
@@ -75,20 +75,19 @@ class FlickrGalleryViewController: UICollectionViewController {
     
     func loadImage(forCell cell: FlickrPhotoCell, inIndexPath indexPath: IndexPath) {
         let photo = viewModel.getPhoto(forIndex: indexPath.row)
-        
         if let url = photo.largeSquareImageUrl,
            ImageCache.default.isCached(forKey: url)
         {
             cell.setImage(withUrl: URL(string: url)!, andPlaceHolder: placeHolderImage)
             return
         }
-
+        
         do {
-            try self.viewModel.fetchLargeSquarePhotoSize(forPhoto: photo) { result in
+            try self.viewModel.fetchImage(forPhoto: photo,
+                                                     inIndexPath: indexPath) { result in
                 switch result {
                 case let .success(photoSize):
                     DispatchQueue.main.async { [weak self] in
-                        guard self?.collectionView.indexPathsForVisibleItems.contains(indexPath) == true else { return }
                         if let url = URL(string: photoSize.url) {
                             cell.setImage(withUrl: url, andPlaceHolder: self?.placeHolderImage)
                         }
@@ -97,6 +96,7 @@ class FlickrGalleryViewController: UICollectionViewController {
                     print(error.localizedDescription)
                 }
             }
+            
         } catch {
             print(error.localizedDescription)
         }
@@ -131,6 +131,7 @@ extension FlickrGalleryViewController {
                 case .success():
                     DispatchQueue.main.async { [weak self] in
                         self?.viewModel.isLoading = false
+                        self?.collectionView.reloadData()
                     }
                 case let .failure(error):
                     print(error.localizedDescription)
@@ -142,6 +143,7 @@ extension FlickrGalleryViewController {
     override func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let flickCell = cell as! FlickrPhotoCell
         flickCell.clearForReuse(withPlaceHolder: placeHolderImage)
+        self.viewModel.cancelImageRequest(forIndexPath: indexPath)
     }
 }
 

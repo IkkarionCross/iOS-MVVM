@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		513FCB88C1BBBA79F42CF000 /* Pods_AppServicesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5D2B44944650D675AD7BA8 /* Pods_AppServicesTests.framework */; };
+		576485A726C19650005B0EED /* RESTServiceSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576485A626C19650005B0EED /* RESTServiceSession.swift */; };
+		57EA9EC826C9EC5B00D4CEA5 /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA9EC726C9EC5B00D4CEA5 /* NetworkTask.swift */; };
 		5C417731B3F18B1B8DABF120 /* Pods_AppServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD4401B8CF791E870AA63AC /* Pods_AppServices.framework */; };
 		8A4BC3FE266AB6D0003433CD /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4BC3FD266AB6D0003433CD /* DataService.swift */; };
 		8AD27CC1265F1BFE00062963 /* AppServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD27CB7265F1BFD00062963 /* AppServices.framework */; };
@@ -53,6 +55,8 @@
 /* Begin PBXFileReference section */
 		0C3A6286555398536C8D608F /* Pods-AppServices.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppServices.release.xcconfig"; path = "Target Support Files/Pods-AppServices/Pods-AppServices.release.xcconfig"; sourceTree = "<group>"; };
 		2A5D2B44944650D675AD7BA8 /* Pods_AppServicesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppServicesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		576485A626C19650005B0EED /* RESTServiceSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTServiceSession.swift; sourceTree = "<group>"; };
+		57EA9EC726C9EC5B00D4CEA5 /* NetworkTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
 		7BD4401B8CF791E870AA63AC /* Pods_AppServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A4BC3FD266AB6D0003433CD /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		8AD27CB7265F1BFD00062963 /* AppServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,6 +188,8 @@
 				8AD27CEA265F1F0F00062963 /* GalleryService.swift */,
 				8AD27CEB265F1F0F00062963 /* RESTService.swift */,
 				8A4BC3FD266AB6D0003433CD /* DataService.swift */,
+				576485A626C19650005B0EED /* RESTServiceSession.swift */,
+				57EA9EC726C9EC5B00D4CEA5 /* NetworkTask.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -380,6 +386,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				576485A726C19650005B0EED /* RESTServiceSession.swift in Sources */,
+				57EA9EC826C9EC5B00D4CEA5 /* NetworkTask.swift in Sources */,
 				8AD27CE3265F1CA600062963 /* Router.swift in Sources */,
 				8A4BC3FE266AB6D0003433CD /* DataService.swift in Sources */,
 				8AD27CE4265F1CA600062963 /* BaseRouter.swift in Sources */,

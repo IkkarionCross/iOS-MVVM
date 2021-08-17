@@ -4,7 +4,6 @@
 //
 //  Created by victor amaro on 24/05/21.
 //
-import UIKit
 import Foundation
 import AppServices
 import FlickrEntities
@@ -21,8 +20,10 @@ class GalleryViewModel {
     private let galleryService: PGalleryService!
     private let sizeService   : PPhotoSizeService!
     
+    private var tasks: [Int: NetworkTask] = [:]
+    
     private var downlimit: Int {
-        return results.count - 80
+        return results.count - 60
     }
     
     var isLoading: Bool = false
@@ -100,8 +101,10 @@ class GalleryViewModel {
         }
     }
     
-    func fetchLargeSquarePhotoSize(forPhoto photo: PhotoViewModel, _ completion: @escaping (Completion<PhotoSizeEntity>) -> Void) throws {
-        try sizeService.fetchSizes(forPhotoId: photo.id) { result in
+    func fetchImage(forPhoto photo: PhotoViewModel,
+                                   inIndexPath indexPath: IndexPath,
+                                   _ completion: @escaping (Completion<PhotoSizeEntity>) -> Void) throws {
+        let task = try sizeService.fetchSizes(forPhotoId: photo.id) { result in
             switch result {
             case let .success(results):
                 guard let photoSize = results.getPhotoSize(withType: "Large Square") else {
@@ -114,6 +117,12 @@ class GalleryViewModel {
                 completion(.failure(error))
             }
         }
+        
+        self.tasks[indexPath.row] = task
+    }
+    
+    func cancelImageRequest(forIndexPath indexPath: IndexPath) {
+        self.tasks[indexPath.row]?.cancel()
     }
     
     func shouldFetchNextPage(displayingCurrentItem row: Int) -> Bool {

@@ -11,5 +11,5 @@ import Alamofire
 import FlickrEntities
 
 protocol NetworkService: DataService {
-    func retrieveData(request: Router, queue: DispatchQueue, completion: @escaping (_ result: Completion<DataType>) -> Void) throws
+    func retrieveData(request: Router, queue: DispatchQueue, completion: @escaping (_ result: Completion<DataType>) -> Void) throws -> NetworkTask
 }

@@ -11,12 +11,15 @@ import Foundation
 public enum NetworkError: AppError, Equatable {
     case invalidDataReceived(requestDescription: String)
     case serverError(statusCode: String, message: String)
+    case clientError(message: String)
     
     public var title: String {
         switch self {
         case .invalidDataReceived:
             return "Dados recebidos inválidos"
         case .serverError:
+            return "Erro ao realizar a requisição"
+        case .clientError:
             return "Erro ao realizar a requisição"
         }
     }
@@ -35,6 +38,8 @@ public enum NetworkError: AppError, Equatable {
                 errorCode.append(":")
             }
             return "O servidor respondeu com erro: \(statusCode): \(message)"
+        case .clientError(let message):
+            return "Erro ao realizar a requisição: \(message)"
         }
     }
 }

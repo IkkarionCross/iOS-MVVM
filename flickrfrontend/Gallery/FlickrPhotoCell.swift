@@ -32,6 +32,7 @@ class FlickrPhotoCell: UICollectionViewCell {
     
     func clearForReuse(withPlaceHolder placeHolderImage: UIImage?) {
         image.image = placeHolderImage
+        image.kf.cancelDownloadTask()
         photoTitle.text = ""
     }
 }

@@ -15,8 +15,8 @@ public class RESTService<T: Deserializable>: NetworkService {
     
     internal func retrieveData(request: Router,
                       queue: DispatchQueue = DispatchQueue.global(),
-                      completion: @escaping (_ result: Completion<DataType>) -> Void) throws {
-        try AF.request(request.asURLRequest())
+                      completion: @escaping (_ result: Completion<DataType>) -> Void) throws -> NetworkTask {
+        let dataRequest = try AF.request(request.asURLRequest())
             .validate(statusCode: 200...299)
             .responseJSON(queue: queue, options: JSONSerialization.ReadingOptions.allowFragments) { response in
                 let requestDescription = request.requestDescription
@@ -47,6 +47,8 @@ public class RESTService<T: Deserializable>: NetworkService {
                     completion(Completion.failure(serverError))
                 }
         }
+        
+        return NetworkTask(request: dataRequest)
     }
     
 }

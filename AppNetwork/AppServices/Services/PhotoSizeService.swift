@@ -7,9 +7,10 @@
 
 import Foundation
 import FlickrEntities
+import Alamofire
 
 public protocol PPhotoSizeService {
-    func fetchSizes(forPhotoId photoId: String, _ completion: @escaping (Completion<[PhotoSizeEntity]>) -> Void) throws
+    func fetchSizes(forPhotoId photoId: String, _ completion: @escaping (Completion<[PhotoSizeEntity]>) -> Void) throws -> NetworkTask?
 }
 
 public class PhotoSizeService {
@@ -27,14 +28,15 @@ public class PhotoSizeService {
 }
 
 extension PhotoSizeService: PPhotoSizeService {
-    public func fetchSizes(forPhotoId photoId: String, _ completion: @escaping (Completion<[PhotoSizeEntity]>) -> Void) throws {
+    public func fetchSizes(forPhotoId photoId: String, _ completion: @escaping (Completion<[PhotoSizeEntity]>) -> Void) throws -> NetworkTask? {
         if let photoSizes = try photoDAO.photo(forId: photoId)?.sizes,
            !photoSizes.isEmpty {
-            return completion(.success(Array(photoSizes)))
+            completion(.success(Array(photoSizes)))
+            return nil
         }
         
         let request = APIFlickr.listSizes(photoId: photoId)
-        try self.restService.retrieveData(request: request, queue: queue) { result in
+        return try self.restService.retrieveData(request: request, queue: queue) { result in
             switch result {
             case let .success(results):
                 self.photoSizeDao.save(sizesForPhotoId: photoId, fromNeworkResults: results.sizes.size) { saveResult in

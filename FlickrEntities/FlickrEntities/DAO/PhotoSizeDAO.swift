@@ -14,14 +14,16 @@ public struct PhotoSizeDAO {
         self.context = context
     }
     
-    public func size(forType type: String, andPhotoId photoId: String) throws -> PhotoSizeEntity? {
+    public func size(forType type: String, andPhotoId photoId: String) throws -> PPhotoSizeModel? {
         let fetchRequest: NSFetchRequest<PhotoSizeEntity> = PhotoSizeEntity.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "type == %@ and photo.id == %@", type, photoId)
         
-        return try context.fetch(fetchRequest).first
+        guard let sizeEntity = try context.fetch(fetchRequest).first else {return nil}
+        
+        return PhotoSizeModel(entity: sizeEntity)
     }
    
-    public func save(sizesForPhotoId id: String, fromNeworkResults results: [FlickrSize], completion: (Completion<[PhotoSizeEntity]>)->Void) {
+    public func save(sizesForPhotoId id: String, fromNeworkResults results: [FlickrSize], completion: (Completion<[PPhotoSizeModel]>)->Void) {
         let privateContext = self.context.privateContext()
         // have to solve this callback hell using combine
         privateContext.performAndWait {
@@ -49,11 +51,13 @@ public struct PhotoSizeDAO {
                             return completion(.failure(DatabaseError.couldNotFind(entity: "photo")))
                         }
                         
-                        guard let photoSizes = photo.sizes else {
+                        guard let _ = photo.sizes else {
                             return completion(.failure(DatabaseError.couldNotFind(entity: "PhotoSizes")))
                         }
                         
-                        completion(.success(Array(photoSizes)))
+                        let photoModel = PhotoModel(entity: photo)
+                        
+                        completion(.success(photoModel.sizes))
                     } catch {
                         completion(.failure(DatabaseError.databaseError(error)))
                     }

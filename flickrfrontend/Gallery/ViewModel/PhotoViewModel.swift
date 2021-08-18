@@ -9,7 +9,7 @@ import Foundation
 import FlickrEntities
 
 struct PhotoViewModel {
-    private let photo: PhotoEntity
+    private let photo: PPhotoModel
     
     var id: String {
         return photo.id
@@ -20,11 +20,11 @@ struct PhotoViewModel {
     }
     
     var largeSquareImageUrl: String? {
-        return photo.sizes?.getPhotoSize(withType: "Large Square")?.url
+        return photo.sizes.first { $0.type ==  "Large Square" }?.url
     }
     
     
-    init(photo: PhotoEntity) {
+    init(photo: PPhotoModel) {
         self.photo = photo
     }
     

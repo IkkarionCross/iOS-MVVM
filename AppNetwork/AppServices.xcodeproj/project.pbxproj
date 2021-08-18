@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		513FCB88C1BBBA79F42CF000 /* Pods_AppServicesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5D2B44944650D675AD7BA8 /* Pods_AppServicesTests.framework */; };
 		576485A726C19650005B0EED /* RESTServiceSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576485A626C19650005B0EED /* RESTServiceSession.swift */; };
+		57D2D2AC26CB4EF60058AA1E /* MockSearchDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D2D2AA26CB4ECE0058AA1E /* MockSearchDAO.swift */; };
+		57D2D2B926CC95250058AA1E /* StubPhotoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D2D2B826CC95250058AA1E /* StubPhotoPage.swift */; };
+		57D2D2BB26CC95FD0058AA1E /* StubSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D2D2BA26CC95FD0058AA1E /* StubSearchResult.swift */; };
 		57EA9EC826C9EC5B00D4CEA5 /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA9EC726C9EC5B00D4CEA5 /* NetworkTask.swift */; };
 		5C417731B3F18B1B8DABF120 /* Pods_AppServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD4401B8CF791E870AA63AC /* Pods_AppServices.framework */; };
 		8A4BC3FE266AB6D0003433CD /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4BC3FD266AB6D0003433CD /* DataService.swift */; };
@@ -56,6 +59,9 @@
 		0C3A6286555398536C8D608F /* Pods-AppServices.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppServices.release.xcconfig"; path = "Target Support Files/Pods-AppServices/Pods-AppServices.release.xcconfig"; sourceTree = "<group>"; };
 		2A5D2B44944650D675AD7BA8 /* Pods_AppServicesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppServicesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		576485A626C19650005B0EED /* RESTServiceSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTServiceSession.swift; sourceTree = "<group>"; };
+		57D2D2AA26CB4ECE0058AA1E /* MockSearchDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSearchDAO.swift; sourceTree = "<group>"; };
+		57D2D2B826CC95250058AA1E /* StubPhotoPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubPhotoPage.swift; sourceTree = "<group>"; };
+		57D2D2BA26CC95FD0058AA1E /* StubSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubSearchResult.swift; sourceTree = "<group>"; };
 		57EA9EC726C9EC5B00D4CEA5 /* NetworkTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
 		7BD4401B8CF791E870AA63AC /* Pods_AppServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A4BC3FD266AB6D0003433CD /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -108,6 +114,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		57D2D2A926CB4E570058AA1E /* TestDoubles */ = {
+			isa = PBXGroup;
+			children = (
+				57D2D2AA26CB4ECE0058AA1E /* MockSearchDAO.swift */,
+				57D2D2B826CC95250058AA1E /* StubPhotoPage.swift */,
+				57D2D2BA26CC95FD0058AA1E /* StubSearchResult.swift */,
+			);
+			path = TestDoubles;
+			sourceTree = "<group>";
+		};
 		8AD27CAD265F1BFD00062963 = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +159,7 @@
 		8AD27CC4265F1BFE00062963 /* AppNetworkTests */ = {
 			isa = PBXGroup;
 			children = (
+				57D2D2A926CB4E570058AA1E /* TestDoubles */,
 				8AD27CC5265F1BFE00062963 /* GalleryServiceTest.swift */,
 				8AD27CC7265F1BFE00062963 /* Info.plist */,
 			);
@@ -386,8 +403,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57D2D2BB26CC95FD0058AA1E /* StubSearchResult.swift in Sources */,
 				576485A726C19650005B0EED /* RESTServiceSession.swift in Sources */,
 				57EA9EC826C9EC5B00D4CEA5 /* NetworkTask.swift in Sources */,
+				57D2D2B926CC95250058AA1E /* StubPhotoPage.swift in Sources */,
 				8AD27CE3265F1CA600062963 /* Router.swift in Sources */,
 				8A4BC3FE266AB6D0003433CD /* DataService.swift in Sources */,
 				8AD27CE4265F1CA600062963 /* BaseRouter.swift in Sources */,
@@ -403,6 +422,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57D2D2AC26CB4EF60058AA1E /* MockSearchDAO.swift in Sources */,
 				8AD27CC6265F1BFE00062963 /* GalleryServiceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

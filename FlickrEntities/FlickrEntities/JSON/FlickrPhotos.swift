@@ -33,7 +33,7 @@ public struct FlickrPhotos: Deserializable {
     }
 }
 
-public class FlickrPhoto: Deserializable {
+public struct FlickrPhoto: Deserializable {
     public let id: String
     public let title: String
     public let secret: String

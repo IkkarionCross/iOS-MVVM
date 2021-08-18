@@ -10,7 +10,7 @@ import FlickrEntities
 
 class GalleryViewModel {
     
-    private var results: [PhotoEntity] = []
+    private var results: [PPhotoModel] = []
     private var lastLoadedPage: Int = 1
     private var perPage: Int = 0
     private var pages: Int = 0
@@ -42,7 +42,7 @@ class GalleryViewModel {
         self.lastSearchText = ""
     }
     
-    private func setResults(photoPage: PhotoPageEntity) {
+    private func setResults(photoPage: PPhotoPageModel) {
         self.results = Array(photoPage.photos)
         self.perPage = Int(photoPage.perPage)
         self.pages = 100
@@ -50,7 +50,7 @@ class GalleryViewModel {
         self.isLoading = false
     }
     
-    private func appendResults(photoPage: PhotoPageEntity) {
+    private func appendResults(photoPage: PPhotoPageModel) {
         self.results.append(contentsOf: Array(photoPage.photos))
         self.lastLoadedPage = Int(photoPage.page)
         self.perPage = Int(photoPage.perPage)
@@ -88,7 +88,7 @@ class GalleryViewModel {
         try galleryService.fetchPhotos(searchText: searchText, page: page) { result in
             switch result {
             case let .success(photoPage):
-                var oldResults = [PhotoEntity]()
+                var oldResults = [PPhotoModel]()
                 oldResults.append(contentsOf: self.results)
                 
                 self.appendResults(photoPage: photoPage)
@@ -103,11 +103,11 @@ class GalleryViewModel {
     
     func fetchImage(forPhoto photo: PhotoViewModel,
                                    inIndexPath indexPath: IndexPath,
-                                   _ completion: @escaping (Completion<PhotoSizeEntity>) -> Void) throws {
+                                   _ completion: @escaping (Completion<PPhotoSizeModel>) -> Void) throws {
         let task = try sizeService.fetchSizes(forPhotoId: photo.id) { result in
             switch result {
             case let .success(results):
-                guard let photoSize = results.getPhotoSize(withType: "Large Square") else {
+                guard let photoSize = results.first(where: { size in size.type == "Large Square" }) else {
                     return completion(.failure(DefaultError.unkwonError(title: "Photo without correct size")))
                 }
                 

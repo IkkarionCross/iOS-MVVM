@@ -8,14 +8,17 @@
 import XCTest
 import OHHTTPStubs
 import FlickrEntities
-@testable import AppNetwork
+@testable import AppServices
 
 class GalleryServiceTest: XCTestCase {
     
     var sut: GalleryService!
+    var mockSearchDAO: MockSearchDAO!
     
     override func setUpWithError() throws {
-        sut = GalleryService(usingQueue: DispatchQueue(label: "com.victoramaro.test"))
+        mockSearchDAO = MockSearchDAO()
+        sut = GalleryService(usingQueue: DispatchQueue(label: "com.victoramaro.test"),
+                             searchDAO: mockSearchDAO)
     }
     
     func testShould_SearchForImages() throws {
@@ -28,16 +31,18 @@ class GalleryServiceTest: XCTestCase {
         stub(condition: isHost(BaseRouter.host)) { _ in
             return HTTPStubsResponse(jsonObject: obj, statusCode: 200, headers: nil)
         }
-        
-        let expectedSearchText = "cat"
+        let searchResult = StubSearchResult(createdAt: Date(), searchText: "cat", pages: [])
+        let expectedPhotoPage = StubPhotoPage(page: 1, perPage: 100, photos: [], search: searchResult)
         
         let expectation = expectation(description: "Expect Image Search")
+
+        mockSearchDAO.saveSearchResult = .success(expectedPhotoPage)
+        mockSearchDAO.expectedFlickrResults = expectedResult
         
-        try sut.search(text: expectedSearchText) { result in
+        try sut.search(text: "cat") { result in
             switch (result) {
-            case let .success(results):
-                XCTAssertEqual(expectedResult.photos.photo.count, results.photos.photo.count)
-                XCTAssertEqual(expectedResult.photos.photo.first?.title, results.photos.photo.first?.title)
+            case .success:
+                XCTAssertTrue(self.mockSearchDAO.saveSearchWasCalled)
             case let .failure(error):
                 XCTFail("Failure is not expected, error: \(error.localizedDescription)")
             }

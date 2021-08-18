@@ -14,11 +14,12 @@ public struct PhotoDAO {
         self.context = context
     }
     
-    public func photo(forId id: String) throws -> PhotoEntity? {
+    public func photo(forId id: String) throws -> PhotoModel? {
         let request: NSFetchRequest<PhotoEntity> = PhotoEntity.fetchRequest()
         request.predicate = NSPredicate(format: "id == %@", id)
         
-        return try context.fetch(request).first
+        guard let photoEntity = try context.fetch(request).first else { return nil }
         
+        return PhotoModel(entity: photoEntity)
     }
 }

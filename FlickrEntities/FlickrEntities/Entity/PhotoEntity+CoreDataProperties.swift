@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension PhotoEntity {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<PhotoEntity> {

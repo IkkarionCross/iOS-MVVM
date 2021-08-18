@@ -11,6 +11,10 @@
 		5766DB622693F33100D018DE /* PhotoSizeDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5766DB602693F24C00D018DE /* PhotoSizeDAO.swift */; };
 		5766DB632693F33400D018DE /* PhotoDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5766DB5D2693F24C00D018DE /* PhotoDAO.swift */; };
 		5766DB642693F33600D018DE /* NSManagedObjectContext+additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5766DB5F2693F24C00D018DE /* NSManagedObjectContext+additions.swift */; };
+		57D2D2B126CC8FDC0058AA1E /* PhotoSizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D2D2B026CC8FDC0058AA1E /* PhotoSizeModel.swift */; };
+		57D2D2B326CC8FFA0058AA1E /* SearchResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D2D2B226CC8FFA0058AA1E /* SearchResultModel.swift */; };
+		57D2D2B526CC90940058AA1E /* PhotoPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D2D2B426CC90940058AA1E /* PhotoPageModel.swift */; };
+		57D2D2B726CC911E0058AA1E /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D2D2B626CC911E0058AA1E /* PhotoModel.swift */; };
 		8AD27D3E265F218E00062963 /* FlickrEntities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD27D34265F218E00062963 /* FlickrEntities.framework */; };
 		8AD27D43265F218E00062963 /* FlickrEntitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD27D42265F218E00062963 /* FlickrEntitiesTests.swift */; };
 		8AD27D45265F218E00062963 /* FlickrEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AD27D37265F218E00062963 /* FlickrEntities.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -47,6 +51,10 @@
 		5766DB5E2693F24C00D018DE /* SearchDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDAO.swift; sourceTree = "<group>"; };
 		5766DB5F2693F24C00D018DE /* NSManagedObjectContext+additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+additions.swift"; sourceTree = "<group>"; };
 		5766DB602693F24C00D018DE /* PhotoSizeDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSizeDAO.swift; sourceTree = "<group>"; };
+		57D2D2B026CC8FDC0058AA1E /* PhotoSizeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSizeModel.swift; sourceTree = "<group>"; };
+		57D2D2B226CC8FFA0058AA1E /* SearchResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultModel.swift; sourceTree = "<group>"; };
+		57D2D2B426CC90940058AA1E /* PhotoPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPageModel.swift; sourceTree = "<group>"; };
+		57D2D2B626CC911E0058AA1E /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		8AD27D34265F218E00062963 /* FlickrEntities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FlickrEntities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AD27D37265F218E00062963 /* FlickrEntities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlickrEntities.h; sourceTree = "<group>"; };
 		8AD27D38265F218E00062963 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,6 +109,17 @@
 			path = DAO;
 			sourceTree = "<group>";
 		};
+		57D2D2AF26CC8FCF0058AA1E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				57D2D2B026CC8FDC0058AA1E /* PhotoSizeModel.swift */,
+				57D2D2B226CC8FFA0058AA1E /* SearchResultModel.swift */,
+				57D2D2B426CC90940058AA1E /* PhotoPageModel.swift */,
+				57D2D2B626CC911E0058AA1E /* PhotoModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		8A4BC3F0266AB52B003433CD /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +156,7 @@
 		8AD27D36265F218E00062963 /* FlickrEntities */ = {
 			isa = PBXGroup;
 			children = (
+				57D2D2AF26CC8FCF0058AA1E /* Model */,
 				5766DB5C2693F24600D018DE /* DAO */,
 				8A4BC3F0266AB52B003433CD /* Entity */,
 				8AD27D56265F220500062963 /* Errors */,
@@ -295,9 +315,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AD27D84265F37A200062963 /* Completion.swift in Sources */,
+				57D2D2B126CC8FDC0058AA1E /* PhotoSizeModel.swift in Sources */,
+				57D2D2B326CC8FFA0058AA1E /* SearchResultModel.swift in Sources */,
 				8AD27D51265F21BD00062963 /* FlickrPhotos.swift in Sources */,
 				5766DB612693F32D00D018DE /* SearchDAO.swift in Sources */,
 				8AD27D52265F21BD00062963 /* Deserializable.swift in Sources */,
+				57D2D2B726CC911E0058AA1E /* PhotoModel.swift in Sources */,
 				8AD9CB982685547600011343 /* SearchResultEntity+CoreDataProperties.swift in Sources */,
 				8AD9CB942685547600011343 /* PhotoEntity+CoreDataClass.swift in Sources */,
 				8AD9CB972685547600011343 /* PhotoSizeEntity+CoreDataClass.swift in Sources */,
@@ -305,6 +328,7 @@
 				5766DB632693F33400D018DE /* PhotoDAO.swift in Sources */,
 				8AD9CB952685547600011343 /* SearchResultEntity+CoreDataClass.swift in Sources */,
 				8AD27D5B265F220500062963 /* JSONError.swift in Sources */,
+				57D2D2B526CC90940058AA1E /* PhotoPageModel.swift in Sources */,
 				5766DB622693F33100D018DE /* PhotoSizeDAO.swift in Sources */,
 				8AD27D81265F362900062963 /* DatabaseError.swift in Sources */,
 				5766DB642693F33600D018DE /* NSManagedObjectContext+additions.swift in Sources */,

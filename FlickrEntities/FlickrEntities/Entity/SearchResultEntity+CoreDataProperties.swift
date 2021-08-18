@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension SearchResultEntity {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<SearchResultEntity> {

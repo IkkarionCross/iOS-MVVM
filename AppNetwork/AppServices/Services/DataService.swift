@@ -6,7 +6,8 @@
 //
 
 import Foundation
+import FlickrEntities
 
 public protocol DataService {
-    associatedtype DataType
+    associatedtype DataType: Deserializable
 }

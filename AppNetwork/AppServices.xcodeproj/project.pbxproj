@@ -3,12 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		513FCB88C1BBBA79F42CF000 /* Pods_AppServicesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5D2B44944650D675AD7BA8 /* Pods_AppServicesTests.framework */; };
 		576485A726C19650005B0EED /* RESTServiceSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576485A626C19650005B0EED /* RESTServiceSession.swift */; };
+		57BA4A9B270F8DAC005CDAF0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 57BA4A9A270F8DAC005CDAF0 /* Alamofire */; };
 		57D2D2AC26CB4EF60058AA1E /* MockSearchDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D2D2AA26CB4ECE0058AA1E /* MockSearchDAO.swift */; };
 		57D2D2B926CC95250058AA1E /* StubPhotoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D2D2B826CC95250058AA1E /* StubPhotoPage.swift */; };
 		57D2D2BB26CC95FD0058AA1E /* StubSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D2D2BA26CC95FD0058AA1E /* StubSearchResult.swift */; };
@@ -27,7 +28,6 @@
 		8AD27CEE265F1F0F00062963 /* GalleryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD27CEA265F1F0F00062963 /* GalleryService.swift */; };
 		8AD27CEF265F1F0F00062963 /* RESTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD27CEB265F1F0F00062963 /* RESTService.swift */; };
 		8AD27D54265F21C700062963 /* FlickrEntities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD27D53265F21C700062963 /* FlickrEntities.framework */; };
-		8AD27D55265F21C700062963 /* FlickrEntities.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD27D53265F21C700062963 /* FlickrEntities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +47,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8AD27D55265F21C700062963 /* FlickrEntities.framework in Embed Frameworks */,
 				8AD27CDC265F1C7600062963 /* Pods_flickrfrontend.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -97,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57BA4A9B270F8DAC005CDAF0 /* Alamofire in Frameworks */,
 				8AD27D54265F21C700062963 /* FlickrEntities.framework in Frameworks */,
 				5C417731B3F18B1B8DABF120 /* Pods_AppServices.framework in Frameworks */,
 			);
@@ -257,6 +257,9 @@
 			dependencies = (
 			);
 			name = AppServices;
+			packageProductDependencies = (
+				57BA4A9A270F8DAC005CDAF0 /* Alamofire */,
+			);
 			productName = AppNetwork;
 			productReference = 8AD27CB7265F1BFD00062963 /* AppServices.framework */;
 			productType = "com.apple.product-type.framework";
@@ -307,6 +310,9 @@
 				Base,
 			);
 			mainGroup = 8AD27CAD265F1BFD00062963;
+			packageReferences = (
+				57BA4A99270F8DAC005CDAF0 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 8AD27CB8265F1BFD00062963 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -441,6 +447,7 @@
 		8AD27CC9265F1BFE00062963 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -490,13 +497,16 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = /Application;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -505,6 +515,7 @@
 		8AD27CCA265F1BFE00062963 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -548,12 +559,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = /Application;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -574,7 +588,6 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = victoramaro.AppNetwork;
@@ -599,7 +612,6 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = victoramaro.AppNetwork;
@@ -681,6 +693,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		57BA4A99270F8DAC005CDAF0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		57BA4A9A270F8DAC005CDAF0 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 57BA4A99270F8DAC005CDAF0 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8AD27CAE265F1BFD00062963 /* Project object */;
 }

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="S0z-96-1cF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="S0z-96-1cF">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -57,10 +58,6 @@
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="150" height="165"/>
-                                <connections>
-                                    <outlet property="image" destination="XKU-hV-dRS" id="cF6-Q8-GeC"/>
-                                    <outlet property="photoTitle" destination="k9g-C5-F8W" id="WTo-EQ-VN2"/>
-                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -79,7 +76,7 @@
         <!--MainViewController-->
         <scene sceneID="Vhp-2Q-TNN">
             <objects>
-                <viewController id="S0z-96-1cF" userLabel="MainViewController" customClass="MainViewController" customModule="flickrfrontend" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="S0z-96-1cF" userLabel="MainViewController" customClass="SearchViewController" customModule="flickrfrontend" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wch-er-VYt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

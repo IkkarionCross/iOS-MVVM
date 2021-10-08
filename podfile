@@ -8,8 +8,6 @@ def networkPodsTests
 end
 
 target 'flickrfrontend' do
-  pod 'Alamofire', '~> 5.0'
-  pod 'Kingfisher', '~> 6.3'
 end
 
 target 'flickrfrontendTests' do
@@ -18,12 +16,10 @@ end
 
 target 'AppServices' do
   project 'AppNetwork/AppServices.xcodeproj'
-  pod 'Alamofire', '~> 5.0'
 end
 
 target 'AppServicesTests' do
   project 'AppNetwork/AppServices.xcodeproj'
   
-  pod 'Alamofire', '~> 5.0'
   networkPodsTests
 end

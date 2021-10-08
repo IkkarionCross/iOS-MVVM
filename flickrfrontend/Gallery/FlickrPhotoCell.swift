@@ -5,16 +5,50 @@
 //  Created by victor amaro on 27/05/21.
 //
 
-import Foundation
+import UIKit
 import Kingfisher
 
 class FlickrPhotoCell: UICollectionViewCell {
-    @IBOutlet weak var photoTitle: UILabel!
-    @IBOutlet weak var image: UIImageView!
+    static let reuseIdentifier = "FlickrCell"
     
-    func configure(withPhoto photo: PhotoViewModel, imagePlaceHolder: UIImage?=nil) {
+    lazy var photoTitle: UILabel = {
+        let label: UILabel = UILabel(frame: .zero)
+        label.textAlignment = .center
+        label.lineBreakMode = .byTruncatingTail
+        label.font = label.font.withSize(12)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    lazy var image: UIImageView = {
+        let imageview: UIImageView = UIImageView(frame: .zero)
+        imageview.contentMode = .scaleAspectFit
+        imageview.translatesAutoresizingMaskIntoConstraints = false
+        return imageview
+    }()
+    
+    weak var router: GalleryRouter?
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        arrangeSubViews()
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(withPhoto photo: PhotoViewModel,
+                   imagePlaceHolder: UIImage?=nil,
+                   router: GalleryRouter) {
         self.photoTitle.text = photo.title
         image.image = imagePlaceHolder
+        let gestureRecognizer = UITapGestureRecognizer(target: self,
+                                                       action: #selector(openImageView))
+        image.addGestureRecognizer(gestureRecognizer)
+        self.router = router
     }
     
     func setImage(withUrl url: URL, andPlaceHolder placeHolder: UIImage?) {
@@ -29,10 +63,28 @@ class FlickrPhotoCell: UICollectionViewCell {
                                ])
     }
     
+    @objc func openImageView() {}
     
     func clearForReuse(withPlaceHolder placeHolderImage: UIImage?) {
         image.image = placeHolderImage
         image.kf.cancelDownloadTask()
         photoTitle.text = ""
+    }
+    
+    func arrangeSubViews() {
+        addSubview(image)
+        addSubview(photoTitle)
+        
+        image.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        image.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        image.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        image.heightAnchor.constraint(equalToConstant: 150.0).isActive = true
+        image.widthAnchor.constraint(equalToConstant: 150.0).isActive = true
+        
+        photoTitle.topAnchor.constraint(equalTo: image.bottomAnchor).isActive = true
+        photoTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        photoTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        photoTitle.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        
     }
 }

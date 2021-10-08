@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 class FlickrGalleryViewController: UICollectionViewController {
-    private let reuseIdentifier = "FlickrCell"
+    
     private let itemsPerRow: CGFloat = 2
     private let sectionInsets = UIEdgeInsets(
       top: 50.0,
@@ -29,9 +29,11 @@ class FlickrGalleryViewController: UICollectionViewController {
         didSet {
            displayActivityIndicator()
             do {
-                collectionView.scrollToItem(at: IndexPath(row: 0, section: 0),
+                if viewModel.itemCount > 0 {
+                    collectionView.scrollToItem(at: IndexPath(row: 0, section: 0),
                                                   at: .top,
                                                   animated: true)
+                }
                 try viewModel.search(text: searchText) { result in
                     switch result {
                     case .success():
@@ -52,8 +54,30 @@ class FlickrGalleryViewController: UICollectionViewController {
         }
     }
     
+    init() {
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = self.sectionInsets
+        layout.itemSize = CGSize(width: 150, height: 165)
+        
+        super.init(collectionViewLayout: layout)
+    }
+    
+    @available(*, unavailable)
+    required init(coder: NSCoder) {
+        super.init(coder: coder)!
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.collectionView.register(FlickrPhotoCell.self, forCellWithReuseIdentifier: FlickrPhotoCell.reuseIdentifier)
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
+        
+        let searchBar: UISearchBar = UISearchBar()
+        searchBar.delegate = self
+        
+        self.view.addSubview(searchBar)
     }
     
     override func didReceiveMemoryWarning() {
@@ -115,8 +139,8 @@ extension FlickrGalleryViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let photo = viewModel.getPhoto(forIndex: indexPath.row)
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FlickrPhotoCell
-        cell.configure(withPhoto: photo, imagePlaceHolder: placeHolderImage)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FlickrPhotoCell.reuseIdentifier, for: indexPath) as! FlickrPhotoCell
+        cell.configure(withPhoto: photo, imagePlaceHolder: placeHolderImage, router: GalleryRouter())
         return cell
     }
     
@@ -161,4 +185,10 @@ extension FlickrGalleryViewController: UICollectionViewDelegateFlowLayout {
       ) -> CGFloat {
         return sectionInsets.left
       }
+}
+
+extension FlickrGalleryViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchText = searchBar.text ?? ""
+    }
 }

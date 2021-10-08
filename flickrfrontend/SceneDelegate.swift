@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import AppServices
+import FlickrEntities
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -16,7 +18,34 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let scene = (scene as? UIWindowScene) else { return }
+        
+        let context = (UIApplication.shared.delegate as? AppDelegate)!.persistentContainer.viewContext
+        
+        let galleryService = GalleryService(
+            usingQueue: DispatchQueue(label: "com.victoramaro.flickrfrontend.gallery"),
+            searchDAO: SearchDAO(context: context))
+        
+        let photoSizeService = PhotoSizeService(
+            usingQueue: DispatchQueue(label: "com.victoramaro.flickrfrontend.photo"),
+            photoSizeDao: PhotoSizeDAO(context: context),
+            photoDAO: PhotoDAO(context: context))
+        
+        let galleryViewController: FlickrGalleryViewController = FlickrGalleryViewController()
+        galleryViewController.viewModel = GalleryViewModel(
+            galleryService: galleryService,
+            sizeService: photoSizeService)
+        
+        let searchViewController: SearchViewController = SearchViewController(resultViewController: galleryViewController)
+        
+        let rootView = UINavigationController()
+        rootView.viewControllers = [searchViewController]
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.windowScene = scene
+        self.window?.rootViewController = rootView
+        self.window?.makeKeyAndVisible()
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

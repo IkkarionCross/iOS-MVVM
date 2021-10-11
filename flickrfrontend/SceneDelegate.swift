@@ -12,7 +12,7 @@ import FlickrEntities
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var mainCoordinator: AppCoordinator?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -21,29 +21,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         
         let context = (UIApplication.shared.delegate as? AppDelegate)!.persistentContainer.viewContext
+        let navController: UINavigationController = UINavigationController()
         
-        let galleryService = GalleryService(
-            usingQueue: DispatchQueue(label: "com.victoramaro.flickrfrontend.gallery"),
-            searchDAO: SearchDAO(context: context))
-        
-        let photoSizeService = PhotoSizeService(
-            usingQueue: DispatchQueue(label: "com.victoramaro.flickrfrontend.photo"),
-            photoSizeDao: PhotoSizeDAO(context: context),
-            photoDAO: PhotoDAO(context: context))
-        
-        let galleryViewController: FlickrGalleryViewController = FlickrGalleryViewController()
-        galleryViewController.viewModel = GalleryViewModel(
-            galleryService: galleryService,
-            sizeService: photoSizeService)
-        
-        let searchViewController: SearchViewController = SearchViewController(resultViewController: galleryViewController)
-        
-        let rootView = UINavigationController()
-        rootView.viewControllers = [searchViewController]
+        mainCoordinator = AppCoordinator(context: context, navController: navController)
+        mainCoordinator?.initialViewController()
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.windowScene = scene
-        self.window?.rootViewController = rootView
+        self.window?.rootViewController = navController
         self.window?.makeKeyAndVisible()
         
     }

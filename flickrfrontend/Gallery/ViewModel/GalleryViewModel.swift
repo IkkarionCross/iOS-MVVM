@@ -101,7 +101,7 @@ class GalleryViewModel {
         }
     }
     
-    func fetchImage(forPhoto photo: PhotoViewModel,
+    func fetchImage(forPhoto photo: PhotoViewModel, inRow photoIndex: Int,
                                    inIndexPath indexPath: IndexPath,
                                    _ completion: @escaping (Completion<PPhotoSizeModel>) -> Void) throws {
         let task = try sizeService.fetchSizes(forPhotoId: photo.id) { result in

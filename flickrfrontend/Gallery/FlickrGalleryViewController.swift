@@ -54,6 +54,8 @@ class FlickrGalleryViewController: UICollectionViewController {
         }
     }
     
+    weak var coordinator: AppCoordinator?
+    
     init() {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = self.sectionInsets
@@ -73,6 +75,7 @@ class FlickrGalleryViewController: UICollectionViewController {
         self.collectionView.register(FlickrPhotoCell.self, forCellWithReuseIdentifier: FlickrPhotoCell.reuseIdentifier)
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        self.collectionView.allowsSelection = true
         
         let searchBar: UISearchBar = UISearchBar()
         searchBar.delegate = self
@@ -107,7 +110,7 @@ class FlickrGalleryViewController: UICollectionViewController {
         }
         
         do {
-            try self.viewModel.fetchImage(forPhoto: photo,
+            try self.viewModel.fetchImage(forPhoto: photo, inRow: indexPath.row,
                                                      inIndexPath: indexPath) { result in
                 switch result {
                 case let .success(photoSize):
@@ -124,6 +127,11 @@ class FlickrGalleryViewController: UICollectionViewController {
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let photoViewModel: PhotoViewModel = viewModel.getPhoto(forIndex: indexPath.row)
+        coordinator?.showPhotoDetail(forPhoto: photoViewModel)
     }
 }
 
@@ -169,6 +177,7 @@ extension FlickrGalleryViewController {
         flickCell.clearForReuse(withPlaceHolder: placeHolderImage)
         self.viewModel.cancelImageRequest(forIndexPath: indexPath)
     }
+    
 }
 
 extension FlickrGalleryViewController: UICollectionViewDelegateFlowLayout {

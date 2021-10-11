@@ -13,16 +13,20 @@ public protocol PPhotoModel {
 }
 
 public struct PhotoModel {
-    public var id: String
-    public var title: String
-    public var sizes: [PPhotoSizeModel]
-    
-    public init(entity: PhotoEntity) {
-        self.id = entity.id
-        self.title = entity.title
-        self.sizes = entity.sizes?.map({ sizeEntity in
+    public let id: String
+    public let title: String
+    public var sizes: [PPhotoSizeModel] {
+        return entity.sizes?.map({ sizeEntity in
             return PhotoSizeModel(entity: sizeEntity)
         }) ?? []
+    }
+    
+    private let entity: PhotoEntity
+    
+    public init(entity: PhotoEntity) {
+        self.entity = entity
+        self.id = entity.id
+        self.title = entity.title
     }
 }
 

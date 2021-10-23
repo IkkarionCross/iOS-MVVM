@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import Coordinator
 
 class PhotoDetailViewController: UIViewController {
     
@@ -15,7 +16,7 @@ class PhotoDetailViewController: UIViewController {
         fatalError()
     }
     
-    var coordinator: AppCoordinator?
+    var coordinator: GalleryCoordinator?
     var photoDetailView: PhotoDetailView
     
     private var viewModel: PhotoViewModel

@@ -8,11 +8,13 @@
 import UIKit
 import AppServices
 import FlickrEntities
+import Coordinator
+import LoginModule
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    var mainCoordinator: AppCoordinator?
+    var mainCoordinator: Coordinator?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -23,8 +25,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let context = (UIApplication.shared.delegate as? AppDelegate)!.persistentContainer.viewContext
         let navController: UINavigationController = UINavigationController()
         
-        mainCoordinator = AppCoordinator(context: context, navController: navController)
-        mainCoordinator?.initialViewController()
+        let oneDocumentCoordinator = DocumentCoordinator(context: context, navController: navController)
+        let onboardingCoordinator = OnBoardingCoordinator(context: context, navController: navController, oneDocumentCoordinator: oneDocumentCoordinator)
+        let loginCoordinator = LoginCoordinator(context: context,
+                                                  navController: navController,
+                                                  onboardingCoordinator: onboardingCoordinator)
+        
+        mainCoordinator = GalleryCoordinator(context: context, navController: navController, loginCoordinator: loginCoordinator)
+        mainCoordinator?.start()
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.windowScene = scene

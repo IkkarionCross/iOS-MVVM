@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Coordinator/Coordinator.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:LoginModule/LoginModule.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:AppNetwork/AppServices.xcodeproj">
    </FileRef>
    <FileRef

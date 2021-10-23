@@ -1,19 +1,15 @@
 //
-//  AppCoordinator.swift
+//  OneDocumentCoordinator.swift
 //  flickrfrontend
 //
-//  Created by Victor Amaro on 10/10/21.
+//  Created by Victor Amaro on 23/10/21.
 //
 
 import UIKit
 import CoreData
-import AppServices
-import FlickrEntities
-import LoginModule
 import Coordinator
 
-class AppCoordinator: Coordinator {
-    
+public class DocumentCoordinator: PDocumentCoordinator {
     let context: NSManagedObjectContext
     let navController: UINavigationController
     
@@ -22,8 +18,11 @@ class AppCoordinator: Coordinator {
         self.navController = navController
     }
     
-    func start() {
+    public func nextScreen() {
+        
     }
     
-    
+    public func start() {
+        
+    }
 }

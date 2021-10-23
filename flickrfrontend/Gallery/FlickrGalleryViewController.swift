@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import Coordinator
 
 class FlickrGalleryViewController: UICollectionViewController {
     
@@ -20,6 +21,24 @@ class FlickrGalleryViewController: UICollectionViewController {
     private var placeHolderImage: UIImage = UIImage(systemName: "photo")!
     
     private let indicatorView: UIActivityIndicatorView = UIActivityIndicatorView(style: .medium)
+    
+    private lazy var searchBar: UISearchBar = {
+        let searchBar: UISearchBar = UISearchBar()
+        searchBar.placeholder = "Search Image..."
+        searchBar.sizeToFit()
+        searchBar.delegate = self
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        
+        return searchBar
+    }()
+    
+    private lazy var searchController: UISearchController = {
+        let searchController: UISearchController = UISearchController()
+        searchController.searchBar.placeholder = "Search Image..."
+        searchController.searchBar.delegate = self
+        
+        return searchController
+    }()
     
     var viewModel: GalleryViewModel!
     
@@ -54,7 +73,7 @@ class FlickrGalleryViewController: UICollectionViewController {
         }
     }
     
-    weak var coordinator: AppCoordinator?
+    var coordinator: GalleryCoordinator?
     
     init() {
         let layout = UICollectionViewFlowLayout()
@@ -77,10 +96,7 @@ class FlickrGalleryViewController: UICollectionViewController {
         self.collectionView.dataSource = self
         self.collectionView.allowsSelection = true
         
-        let searchBar: UISearchBar = UISearchBar()
-        searchBar.delegate = self
-        
-        self.view.addSubview(searchBar)
+        navigationItem.searchController = searchController
     }
     
     override func didReceiveMemoryWarning() {
@@ -131,7 +147,7 @@ class FlickrGalleryViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let photoViewModel: PhotoViewModel = viewModel.getPhoto(forIndex: indexPath.row)
-        coordinator?.showPhotoDetail(forPhoto: photoViewModel)
+        coordinator?.showDetail(forDependency: GalleryDependencies(photo: photoViewModel))
     }
 }
 

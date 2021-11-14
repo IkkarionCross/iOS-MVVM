@@ -8,10 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0CED1528E3AB8668B5C3B37A /* Pods_flickrfrontendTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E91C1D4466D80E2826AEF80 /* Pods_flickrfrontendTests.framework */; };
-		574850FA270A56E7002015B3 /* GalleryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574850F9270A56E7002015B3 /* GalleryRouter.swift */; };
+		576300772730278E00ADA45A /* Onboarding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576300762730278E00ADA45A /* Onboarding.framework */; };
+		576300782730278E00ADA45A /* Onboarding.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 576300762730278E00ADA45A /* Onboarding.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		57633E4B2724A5A600217226 /* GalleryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57633E4A2724A5A600217226 /* GalleryCoordinator.swift */; };
-		57633E4E2724A80000217226 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57633E4D2724A80000217226 /* OnboardingCoordinator.swift */; };
-		57633E502724A89D00217226 /* OneDocumentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57633E4F2724A89D00217226 /* OneDocumentCoordinator.swift */; };
 		577AB67926ACD36400CB4A19 /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577AB67826ACD36400CB4A19 /* PhotoViewModel.swift */; };
 		578BA6DC2714B95400495445 /* PhotoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578BA6DB2714B95400495445 /* PhotoDetailView.swift */; };
 		57BA4AC2270F9C10005CDAF0 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 57BA4AC1270F9C10005CDAF0 /* Kingfisher */; };
@@ -65,6 +64,7 @@
 				8A4BC41A266ACAE6003433CD /* AppServices.framework in Embed Frameworks */,
 				8AD27D29265F212C00062963 /* FlickrEntities.framework in Embed Frameworks */,
 				57C3795F2720E66400DC0E90 /* LoginModule.framework in Embed Frameworks */,
+				576300782730278E00ADA45A /* Onboarding.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,10 +73,8 @@
 
 /* Begin PBXFileReference section */
 		0401FBBE5AC9B4C22ACE4335 /* Pods-flickrfrontend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flickrfrontend.release.xcconfig"; path = "Target Support Files/Pods-flickrfrontend/Pods-flickrfrontend.release.xcconfig"; sourceTree = "<group>"; };
-		574850F9270A56E7002015B3 /* GalleryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryRouter.swift; sourceTree = "<group>"; };
+		576300762730278E00ADA45A /* Onboarding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Onboarding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57633E4A2724A5A600217226 /* GalleryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCoordinator.swift; sourceTree = "<group>"; };
-		57633E4D2724A80000217226 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
-		57633E4F2724A89D00217226 /* OneDocumentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDocumentCoordinator.swift; sourceTree = "<group>"; };
 		577AB67826ACD36400CB4A19 /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
 		578BA6DB2714B95400495445 /* PhotoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailView.swift; sourceTree = "<group>"; };
 		57C3795D2720E66400DC0E90 /* LoginModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoginModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +117,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57BA4AC2270F9C10005CDAF0 /* Kingfisher in Frameworks */,
+				576300772730278E00ADA45A /* Onboarding.framework in Frameworks */,
 				57C3795E2720E66400DC0E90 /* LoginModule.framework in Frameworks */,
 				B6F1FBF9228C5863596F6603 /* Pods_flickrfrontend.framework in Frameworks */,
 				8AD27D28265F212C00062963 /* FlickrEntities.framework in Frameworks */,
@@ -155,15 +154,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		57633E4C2724A7EE00217226 /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				57633E4D2724A80000217226 /* OnboardingCoordinator.swift */,
-				57633E4F2724A89D00217226 /* OneDocumentCoordinator.swift */,
-			);
-			path = Onboarding;
-			sourceTree = "<group>";
-		};
 		578BA6DA2714B93600495445 /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,7 +170,6 @@
 				8AC8C865265992F0004EBC3C /* FlickrGalleryViewController.swift */,
 				8A51DAAD265C825A00D99FB9 /* SearchViewController.swift */,
 				8AD27D85266068F200062963 /* FlickrPhotoCell.swift */,
-				574850F9270A56E7002015B3 /* GalleryRouter.swift */,
 				57C7D32C2713B9BC00A03616 /* PhotoDetailViewController.swift */,
 				57633E4A2724A5A600217226 /* GalleryCoordinator.swift */,
 			);
@@ -221,7 +210,6 @@
 		8AC8C860265992F0004EBC3C /* flickrfrontend */ = {
 			isa = PBXGroup;
 			children = (
-				57633E4C2724A7EE00217226 /* Onboarding */,
 				8A51DAAF265C855600D99FB9 /* Gallery */,
 				8AC8C861265992F0004EBC3C /* AppDelegate.swift */,
 				8AC8C863265992F0004EBC3C /* SceneDelegate.swift */,
@@ -264,6 +252,7 @@
 		ADE0ED28E9DC8151F088C89C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				576300762730278E00ADA45A /* Onboarding.framework */,
 				57C3795D2720E66400DC0E90 /* LoginModule.framework */,
 				8A4BC418266ACAE6003433CD /* AppServices.framework */,
 				8AD27D27265F212C00062963 /* FlickrEntities.framework */,
@@ -484,11 +473,8 @@
 				8AC8C866265992F0004EBC3C /* FlickrGalleryViewController.swift in Sources */,
 				8AC8C862265992F0004EBC3C /* AppDelegate.swift in Sources */,
 				57C7D32B2713B6DB00A03616 /* AppCoordinator.swift in Sources */,
-				57633E4E2724A80000217226 /* OnboardingCoordinator.swift in Sources */,
 				8AD27D86266068F200062963 /* FlickrPhotoCell.swift in Sources */,
-				574850FA270A56E7002015B3 /* GalleryRouter.swift in Sources */,
 				57C7D32D2713B9BC00A03616 /* PhotoDetailViewController.swift in Sources */,
-				57633E502724A89D00217226 /* OneDocumentCoordinator.swift in Sources */,
 				8AD27D64265F285E00062963 /* flickrfrontend.xcdatamodeld in Sources */,
 				8A51DAAE265C825A00D99FB9 /* SearchViewController.swift in Sources */,
 				578BA6DC2714B95400495445 /* PhotoDetailView.swift in Sources */,

@@ -11,6 +11,9 @@ import Coordinator
 import AppServices
 import FlickrEntities
 
+public enum GalleryFlow: String, AppFlow {
+    case login
+}
 
 public struct GalleryDependencies: Dependencies {
     let photo: PhotoViewModel
@@ -18,24 +21,21 @@ public struct GalleryDependencies: Dependencies {
     init(photo: PhotoViewModel) {
         self.photo = photo
     }
-    
 }
 
-public class GalleryCoordinator: PGalleryCoordinator {
+public class GalleryCoordinator: BaseCoordinator<GalleryFlow> {
     
-    let context: NSManagedObjectContext
-    let navController: UINavigationController
-    let loginCoordinator: Coordinator
+    private let context: NSManagedObjectContext
+    private let navController: UINavigationController
     
-    init(context: NSManagedObjectContext, navController: UINavigationController, loginCoordinator: Coordinator) {
+    init(context: NSManagedObjectContext, navController: UINavigationController) {
         self.context = context
         self.navController = navController
-        self.loginCoordinator = loginCoordinator
     }
     
-    public func start() {
+    public override func start() {
         self.navController.pushViewController(galleryFlow(), animated: false)
-        self.loginCoordinator.start()
+        coordinator(forFlow: .login)?.start()
     }
     
     private func galleryFlow() -> FlickrGalleryViewController {

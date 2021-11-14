@@ -10,12 +10,13 @@ import AppServices
 import FlickrEntities
 import Coordinator
 import LoginModule
+import Onboarding
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     var mainCoordinator: Coordinator?
-
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -25,13 +26,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let context = (UIApplication.shared.delegate as? AppDelegate)!.persistentContainer.viewContext
         let navController: UINavigationController = UINavigationController()
         
-        let oneDocumentCoordinator = DocumentCoordinator(context: context, navController: navController)
-        let onboardingCoordinator = OnBoardingCoordinator(context: context, navController: navController, oneDocumentCoordinator: oneDocumentCoordinator)
         let loginCoordinator = LoginCoordinator(context: context,
-                                                  navController: navController,
-                                                  onboardingCoordinator: onboardingCoordinator)
+                                                navController: navController)
+        let onboardingCoordinator = OnBoardingCoordinator(context: context, navController: loginCoordinator.loginNavController)
         
-        mainCoordinator = GalleryCoordinator(context: context, navController: navController, loginCoordinator: loginCoordinator)
+        loginCoordinator.register(forFlow: .onboarding, withCoordinator: onboardingCoordinator)
+        
+        let galleryCoordinator = GalleryCoordinator(context: context, navController: navController)
+        galleryCoordinator.register(forFlow: .login, withCoordinator: loginCoordinator)
+        
+        mainCoordinator = galleryCoordinator
         mainCoordinator?.start()
         
         self.window = UIWindow(frame: UIScreen.main.bounds)

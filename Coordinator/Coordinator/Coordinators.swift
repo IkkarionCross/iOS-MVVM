@@ -26,3 +26,8 @@ public protocol PLoginCoordinator: Coordinator {
     func registerFlow()
     func loginSuccessful()
 }
+
+public protocol PAddressCoordinator: Coordinator {
+    func back()
+    func nextScreen()
+}

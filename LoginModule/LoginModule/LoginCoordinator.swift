@@ -9,28 +9,35 @@ import UIKit
 import Coordinator
 import CoreData
 
-public class LoginCoordinator: PLoginCoordinator {
-    public var onboardingCoordinator: Coordinator
-    
+
+public enum LoginFlow: String, AppFlow {
+    case login = "login", onboarding = "register"
+}
+
+public class LoginCoordinator: BaseCoordinator<LoginFlow> {
     private var navController: UINavigationController
+    public let loginNavController: UINavigationController
     
-    public init(context: NSManagedObjectContext, navController: UINavigationController,  onboardingCoordinator: Coordinator) {
+    public init(context: NSManagedObjectContext, navController: UINavigationController) {
         self.navController = navController
-        self.onboardingCoordinator = onboardingCoordinator
+        self.loginNavController = UINavigationController()
+        super.init()
     }
     
-    public func start() {
+    public override func start() {
         let loginController: LoginViewController = LoginViewController()
         loginController.coordinator = self
         loginController.modalPresentationStyle = .fullScreen
-        navController.modalPresentationStyle = .fullScreen
-        DispatchQueue.main.async { [weak self] in
-            self?.navController.present(loginController, animated: false, completion: nil)
+        loginNavController.modalPresentationStyle = .fullScreen
+        loginNavController.pushViewController(loginController, animated: true)
+        
+        DispatchQueue.main.async { [unowned self] in
+            self.navController.present(self.loginNavController, animated: false, completion: nil)
         }
     }
     
     public func registerFlow() {
-        onboardingCoordinator.start()
+        coordinator(forFlow: .onboarding)?.start()
     }
     
     public func loginSuccessful() {

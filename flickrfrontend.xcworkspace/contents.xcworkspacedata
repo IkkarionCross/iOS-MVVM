@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Onboarding/Onboarding.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Coordinator/Coordinator.xcodeproj">
    </FileRef>
    <FileRef

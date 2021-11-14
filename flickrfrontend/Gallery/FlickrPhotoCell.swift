@@ -27,7 +27,7 @@ class FlickrPhotoCell: UICollectionViewCell {
         return imageview
     }()
     
-    weak var router: GalleryRouter?
+    weak var router: GalleryCoordinator?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,7 +42,7 @@ class FlickrPhotoCell: UICollectionViewCell {
     
     func configure(withPhoto photo: PhotoViewModel,
                    imagePlaceHolder: UIImage?=nil,
-                   router: GalleryRouter) {
+                   router: GalleryCoordinator?) {
         self.photoTitle.text = photo.title
         image.image = imagePlaceHolder
         let gestureRecognizer = UITapGestureRecognizer(target: self,

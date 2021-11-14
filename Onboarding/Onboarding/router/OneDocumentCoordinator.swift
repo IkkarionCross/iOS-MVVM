@@ -13,7 +13,7 @@ public class DocumentCoordinator: PDocumentCoordinator {
     let context: NSManagedObjectContext
     let navController: UINavigationController
     
-    init(context: NSManagedObjectContext, navController: UINavigationController) {
+    public init(context: NSManagedObjectContext, navController: UINavigationController) {
         self.context = context
         self.navController = navController
     }

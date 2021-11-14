@@ -164,7 +164,7 @@ extension FlickrGalleryViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let photo = viewModel.getPhoto(forIndex: indexPath.row)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FlickrPhotoCell.reuseIdentifier, for: indexPath) as! FlickrPhotoCell
-        cell.configure(withPhoto: photo, imagePlaceHolder: placeHolderImage, router: GalleryRouter())
+        cell.configure(withPhoto: photo, imagePlaceHolder: placeHolderImage, router: self.coordinator)
         return cell
     }
     

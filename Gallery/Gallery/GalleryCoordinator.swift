@@ -28,7 +28,7 @@ public class GalleryCoordinator: BaseCoordinator<GalleryFlow> {
     private let context: NSManagedObjectContext
     private let navController: UINavigationController
     
-    init(context: NSManagedObjectContext, navController: UINavigationController) {
+    public init(context: NSManagedObjectContext, navController: UINavigationController) {
         self.context = context
         self.navController = navController
     }

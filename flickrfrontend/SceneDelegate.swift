@@ -11,6 +11,7 @@ import FlickrEntities
 import Coordinator
 import LoginModule
 import Onboarding
+import Gallery
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 

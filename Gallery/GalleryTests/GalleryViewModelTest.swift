@@ -6,9 +6,9 @@
 //
 
 import XCTest
-import AppNetwork
+import AppServices
 import FlickrEntities
-@testable import flickrfrontend
+@testable import Gallery
 
 class GalleryViewModelTest: XCTestCase {
     

@@ -25,6 +25,8 @@
 		5783CAB5274F01A60031E663 /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5783CAB3274F01A60031E663 /* GalleryViewModel.swift */; };
 		5783CAB6274F01A60031E663 /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5783CAB4274F01A60031E663 /* PhotoViewModel.swift */; };
 		5783CAB9274F02750031E663 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5783CAB8274F02750031E663 /* Kingfisher */; };
+		5783CABF274F08150031E663 /* ServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5783CABE274F08150031E663 /* ServiceMock.swift */; };
+		5783CAC1274F08410031E663 /* EntitiesMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5783CAC0274F08410031E663 /* EntitiesMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		5783CAAF274F017C0031E663 /* PhotoDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoDetailView.swift; path = view/PhotoDetailView.swift; sourceTree = "<group>"; };
 		5783CAB3274F01A60031E663 /* GalleryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GalleryViewModel.swift; path = ViewModel/GalleryViewModel.swift; sourceTree = "<group>"; };
 		5783CAB4274F01A60031E663 /* PhotoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoViewModel.swift; path = ViewModel/PhotoViewModel.swift; sourceTree = "<group>"; };
+		5783CABE274F08150031E663 /* ServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceMock.swift; sourceTree = "<group>"; };
+		5783CAC0274F08410031E663 /* EntitiesMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntitiesMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,7 @@
 		5783CA7F274EFF4A0031E663 /* GalleryTests */ = {
 			isa = PBXGroup;
 			children = (
+				5783CABD274F07FC0031E663 /* Mock */,
 				5783CA99274F00120031E663 /* GalleryViewModelTest.swift */,
 			);
 			path = GalleryTests;
@@ -161,6 +166,15 @@
 				5783CAB4274F01A60031E663 /* PhotoViewModel.swift */,
 			);
 			name = viewModel;
+			sourceTree = "<group>";
+		};
+		5783CABD274F07FC0031E663 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				5783CABE274F08150031E663 /* ServiceMock.swift */,
+				5783CAC0274F08410031E663 /* EntitiesMock.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,6 +311,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5783CA9A274F00120031E663 /* GalleryViewModelTest.swift in Sources */,
+				5783CAC1274F08410031E663 /* EntitiesMock.swift in Sources */,
+				5783CABF274F08150031E663 /* ServiceMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

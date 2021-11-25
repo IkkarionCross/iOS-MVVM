@@ -10,7 +10,6 @@
 		57596DEB27407D8C00747F3F /* OnboardingDecisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57596DEA27407D8C00747F3F /* OnboardingDecisionViewController.swift */; };
 		57596DED2740815D00747F3F /* OnboardingDecisionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57596DEC2740815D00747F3F /* OnboardingDecisionViewModel.swift */; };
 		576300632730274600ADA45A /* Onboarding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5763005A2730274500ADA45A /* Onboarding.framework */; };
-		576300682730274600ADA45A /* OnboardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576300672730274600ADA45A /* OnboardingTests.swift */; };
 		576300692730274600ADA45A /* Onboarding.h in Headers */ = {isa = PBXBuildFile; fileRef = 5763005D2730274600ADA45A /* Onboarding.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		576300742730275000ADA45A /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576300732730275000ADA45A /* OnboardingCoordinator.swift */; };
 		576300752730275000ADA45A /* OneDocumentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576300722730275000ADA45A /* OneDocumentCoordinator.swift */; };
@@ -50,7 +49,6 @@
 		5763005A2730274500ADA45A /* Onboarding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Onboarding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5763005D2730274600ADA45A /* Onboarding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Onboarding.h; sourceTree = "<group>"; };
 		576300622730274600ADA45A /* OnboardingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnboardingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		576300672730274600ADA45A /* OnboardingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTests.swift; sourceTree = "<group>"; };
 		576300722730275000ADA45A /* OneDocumentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDocumentCoordinator.swift; sourceTree = "<group>"; };
 		576300732730275000ADA45A /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		57630079273027A900ADA45A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 		576300662730274600ADA45A /* OnboardingTests */ = {
 			isa = PBXGroup;
 			children = (
-				576300672730274600ADA45A /* OnboardingTests.swift */,
 			);
 			path = OnboardingTests;
 			sourceTree = "<group>";
@@ -266,7 +263,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				576300682730274600ADA45A /* OnboardingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

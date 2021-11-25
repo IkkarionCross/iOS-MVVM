@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		578BA6F22714DBCB00495445 /* LoginModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 578BA6E92714DBCA00495445 /* LoginModule.framework */; };
-		578BA6F72714DBCB00495445 /* LoginModuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578BA6F62714DBCB00495445 /* LoginModuleTests.swift */; };
 		578BA6F82714DBCB00495445 /* LoginModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 578BA6EC2714DBCA00495445 /* LoginModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		578BA7022714DBEC00495445 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578BA7012714DBEC00495445 /* LoginViewController.swift */; };
 		578BA7042714DC6200495445 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578BA7032714DC6200495445 /* LoginCoordinator.swift */; };
@@ -44,7 +43,6 @@
 		578BA6E92714DBCA00495445 /* LoginModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LoginModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		578BA6EC2714DBCA00495445 /* LoginModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginModule.h; sourceTree = "<group>"; };
 		578BA6F12714DBCB00495445 /* LoginModuleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoginModuleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		578BA6F62714DBCB00495445 /* LoginModuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModuleTests.swift; sourceTree = "<group>"; };
 		578BA7012714DBEC00495445 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../../LoginViewController.swift; sourceTree = "<group>"; };
 		578BA7032714DC6200495445 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		57C379592720E52900DC0E90 /* Coordinator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Coordinator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,7 +100,6 @@
 		578BA6F52714DBCB00495445 /* LoginModuleTests */ = {
 			isa = PBXGroup;
 			children = (
-				578BA6F62714DBCB00495445 /* LoginModuleTests.swift */,
 			);
 			path = LoginModuleTests;
 			sourceTree = "<group>";
@@ -235,7 +232,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				578BA6F72714DBCB00495445 /* LoginModuleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

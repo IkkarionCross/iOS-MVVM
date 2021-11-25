@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		57C379452720E4BE00DC0E90 /* Coordinator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57C3793C2720E4BE00DC0E90 /* Coordinator.framework */; };
-		57C3794A2720E4BE00DC0E90 /* CoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C379492720E4BE00DC0E90 /* CoordinatorTests.swift */; };
 		57C3794B2720E4BE00DC0E90 /* Coordinator.h in Headers */ = {isa = PBXBuildFile; fileRef = 57C3793F2720E4BE00DC0E90 /* Coordinator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		57C379552720E4CA00DC0E90 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C379542720E4CA00DC0E90 /* Coordinator.swift */; };
 		57C379572720E4D700DC0E90 /* CoordinatableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C379562720E4D700DC0E90 /* CoordinatableViewController.swift */; };
@@ -29,7 +28,6 @@
 		57C3793C2720E4BE00DC0E90 /* Coordinator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Coordinator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57C3793F2720E4BE00DC0E90 /* Coordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Coordinator.h; sourceTree = "<group>"; };
 		57C379442720E4BE00DC0E90 /* CoordinatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoordinatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		57C379492720E4BE00DC0E90 /* CoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorTests.swift; sourceTree = "<group>"; };
 		57C379542720E4CA00DC0E90 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		57C379562720E4D700DC0E90 /* CoordinatableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatableViewController.swift; sourceTree = "<group>"; };
 		57C379602720EBA400DC0E90 /* Coordinators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinators.swift; sourceTree = "<group>"; };
@@ -86,7 +84,6 @@
 		57C379482720E4BE00DC0E90 /* CoordinatorTests */ = {
 			isa = PBXGroup;
 			children = (
-				57C379492720E4BE00DC0E90 /* CoordinatorTests.swift */,
 			);
 			path = CoordinatorTests;
 			sourceTree = "<group>";
@@ -211,7 +208,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57C3794A2720E4BE00DC0E90 /* CoordinatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,8 +22,6 @@
 		8AC8C869265992F0004EBC3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AC8C867265992F0004EBC3C /* Main.storyboard */; };
 		8AC8C86E265992F8004EBC3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AC8C86D265992F8004EBC3C /* Assets.xcassets */; };
 		8AC8C871265992F8004EBC3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AC8C86F265992F8004EBC3C /* LaunchScreen.storyboard */; };
-		8AC8C87C265992F9004EBC3C /* GalleryViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC8C87B265992F9004EBC3C /* GalleryViewModelTest.swift */; };
-		8AC8C887265992F9004EBC3C /* flickrfrontendUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC8C886265992F9004EBC3C /* flickrfrontendUITests.swift */; };
 		8AD27D28265F212C00062963 /* FlickrEntities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD27D27265F212C00062963 /* FlickrEntities.framework */; };
 		8AD27D29265F212C00062963 /* FlickrEntities.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD27D27265F212C00062963 /* FlickrEntities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8AD27D64265F285E00062963 /* flickrfrontend.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8AD27D62265F285E00062963 /* flickrfrontend.xcdatamodeld */; };
@@ -83,10 +81,8 @@
 		8AC8C870265992F8004EBC3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8AC8C872265992F8004EBC3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AC8C877265992F9004EBC3C /* flickrfrontendTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = flickrfrontendTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8AC8C87B265992F9004EBC3C /* GalleryViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModelTest.swift; sourceTree = "<group>"; };
 		8AC8C87D265992F9004EBC3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AC8C882265992F9004EBC3C /* flickrfrontendUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = flickrfrontendUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8AC8C886265992F9004EBC3C /* flickrfrontendUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flickrfrontendUITests.swift; sourceTree = "<group>"; };
 		8AC8C888265992F9004EBC3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AD27CD1265F1C2E00062963 /* AppNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AD27D21265F207D00062963 /* Entities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Entities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,7 +176,6 @@
 		8AC8C87A265992F9004EBC3C /* flickrfrontendTests */ = {
 			isa = PBXGroup;
 			children = (
-				8AD27CA9265DC18300062963 /* ViewModel */,
 				8AC8C87D265992F9004EBC3C /* Info.plist */,
 			);
 			path = flickrfrontendTests;
@@ -189,18 +184,9 @@
 		8AC8C885265992F9004EBC3C /* flickrfrontendUITests */ = {
 			isa = PBXGroup;
 			children = (
-				8AC8C886265992F9004EBC3C /* flickrfrontendUITests.swift */,
 				8AC8C888265992F9004EBC3C /* Info.plist */,
 			);
 			path = flickrfrontendUITests;
-			sourceTree = "<group>";
-		};
-		8AD27CA9265DC18300062963 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				8AC8C87B265992F9004EBC3C /* GalleryViewModelTest.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		ADE0ED28E9DC8151F088C89C /* Frameworks */ = {
@@ -435,7 +421,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AC8C87C265992F9004EBC3C /* GalleryViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,7 +428,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AC8C887265992F9004EBC3C /* flickrfrontendUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,12 +2,13 @@
 //  SearchResultEntity+CoreDataProperties.swift
 //  FlickrEntities
 //
-//  Created by victor amaro on 04/06/21.
+//  Created by Victor Amaro on 24/11/21.
 //
 //
 
 import Foundation
 import CoreData
+
 
 extension SearchResultEntity {
 
@@ -17,6 +18,7 @@ extension SearchResultEntity {
 
     @NSManaged public var createdAt: Date
     @NSManaged public var searchText: String
+    @NSManaged public var remotePagesCount: Int32
     @NSManaged public var pages: Set<PhotoPageEntity>
 
 }

@@ -23,7 +23,7 @@ public struct PhotoPageModel {
         self.page = entity.page
         self.perPage = entity.perPage
         self.photos = []
-        self.pages = entity.search.pages.count
+        self.pages = Int(entity.search.remotePagesCount)
         entity.photos.forEach { photoEntity in
             photos.append(PhotoModel(entity: photoEntity))
         }

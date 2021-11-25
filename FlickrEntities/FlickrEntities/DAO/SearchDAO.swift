@@ -55,6 +55,7 @@ public struct SearchDAO: PSearchDAO {
                 let searchEntity: SearchResultEntity = SearchResultEntity(context: pContext)
                 searchEntity.searchText = text
                 searchEntity.createdAt = Date()
+                searchEntity.remotePagesCount = Int32(results.photos.pages)
                 
                 let photoPage: PhotoPageEntity = PhotoPageEntity(context: pContext)
                 photoPage.page = Int32(page)

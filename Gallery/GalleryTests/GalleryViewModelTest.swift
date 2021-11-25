@@ -22,16 +22,12 @@ class GalleryViewModelTest: XCTestCase {
         sut = GalleryViewModel(galleryService: galleryServiceMock, sizeService: photoSizeServiceMock)
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
     func testShould_SearchForImages() throws {
         let expectedResultCount = 1
         let expectedSearchText = "gatinho"
         
         let expectedPhoto = PhotoMock(id: "1234", title: "teste gatinho", sizes: [])
-        let expectedResult = Completion<PPhotoPageModel>.success(PhotoPageMock(page: 1, perPage: 100, photos: [expectedPhoto]))
+        let expectedResult = Completion<PPhotoPageModel>.success(PhotoPageMock(page: 1, perPage: 100, photos: [expectedPhoto], pages: 1))
         
         galleryServiceMock.result = expectedResult
         
@@ -62,7 +58,7 @@ class GalleryViewModelTest: XCTestCase {
         let expectedSearchText = "gatinho"
         
         let expectedPhoto = PhotoMock(id: "1234", title: "teste", sizes: [])
-        let expectedResult = Completion<PPhotoPageModel>.success(PhotoPageMock(page: Int32(expectedPage), perPage: 100, photos: [expectedPhoto]))
+        let expectedResult = Completion<PPhotoPageModel>.success(PhotoPageMock(page: Int32(expectedPage), perPage: 100, photos: [expectedPhoto], pages: 1))
         
         galleryServiceMock.result = expectedResult
         
@@ -73,9 +69,40 @@ class GalleryViewModelTest: XCTestCase {
         galleryServiceMock.checkFetchPhotos(expectedSearchText: expectedSearchText, expectedPage: expectedPage)
     }
     
-    func testShouldFetchPhotos_WithLastSearch() throws {
-
+    func testShouldNotFetchNextPage() throws {
+        let expectedResultCount = 1
+        let expectedPage = 1
+        let expectedSearchText = "gatinho"
+        
+        let expectedPhoto = PhotoMock(id: "1234", title: "teste", sizes: [])
+        let expectedResult = Completion<PPhotoPageModel>.success(PhotoPageMock(page: Int32(expectedPage), perPage: 100, photos: [expectedPhoto], pages: 1))
+        
+        galleryServiceMock.result = expectedResult
+        
+        try sut.fetchPhotos(text: expectedSearchText, page: 1) { result in
+            XCTAssertEqual(expectedResultCount, self.sut.itemCount)
+        }
+        
+        XCTAssertFalse(sut.shouldFetchNextPage(displayingCurrentItem: 0))
     }
-
-
+    
+    func testShouldFetchNextPage() throws {
+        sut = GalleryViewModel(galleryService: galleryServiceMock, sizeService: photoSizeServiceMock, limitToLoadNewPages: 1)
+        
+        let expectedResultCount = 3
+        let expectedPage = 1
+        let expectedSearchText = "gatinho"
+        
+        let expectedPhoto = PhotoMock(id: "1234", title: "teste", sizes: [])
+        let expectedResult = Completion<PPhotoPageModel>.success(PhotoPageMock(page: Int32(expectedPage), perPage: 3,
+                                                                               photos: [expectedPhoto, expectedPhoto, expectedPhoto], pages: 2))
+        
+        galleryServiceMock.result = expectedResult
+        
+        try sut.fetchPhotos(text: expectedSearchText, page: 1) { result in
+            XCTAssertEqual(expectedResultCount, self.sut.itemCount)
+        }
+        
+        XCTAssertTrue(sut.shouldFetchNextPage(displayingCurrentItem: 2))
+    }
 }

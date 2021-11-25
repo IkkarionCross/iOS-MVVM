@@ -23,4 +23,5 @@ struct PhotoPageMock: PPhotoPageModel {
     var page: Int32
     var perPage: Int32
     var photos: [PPhotoModel]
+    var pages: Int
 }

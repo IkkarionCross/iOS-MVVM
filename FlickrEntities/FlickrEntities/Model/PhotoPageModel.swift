@@ -10,17 +10,20 @@ public protocol PPhotoPageModel {
     var page: Int32 {get}
     var perPage: Int32 {get}
     var photos: [PPhotoModel] {get}
+    var pages: Int {get}
 }
 
 public struct PhotoPageModel {
-    public var page: Int32
-    public var perPage: Int32
+    public let page: Int32
+    public let perPage: Int32
     public var photos: [PPhotoModel]
+    public let pages: Int
     
     public init(entity: PhotoPageEntity) {
         self.page = entity.page
         self.perPage = entity.perPage
         self.photos = []
+        self.pages = entity.search.pages.count
         entity.photos.forEach { photoEntity in
             photos.append(PhotoModel(entity: photoEntity))
         }

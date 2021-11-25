@@ -178,7 +178,6 @@ extension FlickrGalleryViewController {
                 switch result {
                 case .success():
                     DispatchQueue.main.async { [weak self] in
-                        self?.viewModel.isLoading = false
                         self?.collectionView.reloadData()
                     }
                 case let .failure(error):

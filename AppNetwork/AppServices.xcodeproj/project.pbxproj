@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		513FCB88C1BBBA79F42CF000 /* Pods_AppServicesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5D2B44944650D675AD7BA8 /* Pods_AppServicesTests.framework */; };
 		576485A726C19650005B0EED /* RESTServiceSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576485A626C19650005B0EED /* RESTServiceSession.swift */; };
+		5783CAC4274F091A0031E663 /* Cancelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5783CAC3274F091A0031E663 /* Cancelable.swift */; };
 		57BA4A9B270F8DAC005CDAF0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 57BA4A9A270F8DAC005CDAF0 /* Alamofire */; };
 		57D2D2AC26CB4EF60058AA1E /* MockSearchDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D2D2AA26CB4ECE0058AA1E /* MockSearchDAO.swift */; };
 		57D2D2B926CC95250058AA1E /* StubPhotoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D2D2B826CC95250058AA1E /* StubPhotoPage.swift */; };
@@ -58,6 +59,7 @@
 		0C3A6286555398536C8D608F /* Pods-AppServices.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppServices.release.xcconfig"; path = "Target Support Files/Pods-AppServices/Pods-AppServices.release.xcconfig"; sourceTree = "<group>"; };
 		2A5D2B44944650D675AD7BA8 /* Pods_AppServicesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppServicesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		576485A626C19650005B0EED /* RESTServiceSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTServiceSession.swift; sourceTree = "<group>"; };
+		5783CAC3274F091A0031E663 /* Cancelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cancelable.swift; sourceTree = "<group>"; };
 		57D2D2AA26CB4ECE0058AA1E /* MockSearchDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSearchDAO.swift; sourceTree = "<group>"; };
 		57D2D2B826CC95250058AA1E /* StubPhotoPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubPhotoPage.swift; sourceTree = "<group>"; };
 		57D2D2BA26CC95FD0058AA1E /* StubSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubSearchResult.swift; sourceTree = "<group>"; };
@@ -114,6 +116,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5783CAC2274F090A0031E663 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				5783CAC3274F091A0031E663 /* Cancelable.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		57D2D2A926CB4E570058AA1E /* TestDoubles */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +158,7 @@
 		8AD27CB9265F1BFD00062963 /* AppServices */ = {
 			isa = PBXGroup;
 			children = (
+				5783CAC2274F090A0031E663 /* Util */,
 				8AD27CE7265F1F0E00062963 /* Services */,
 				8AD27CDE265F1CA600062963 /* API */,
 				8AD27CBA265F1BFE00062963 /* AppNetwork.h */,
@@ -419,6 +430,7 @@
 				8AD27CED265F1F0F00062963 /* NetworkService.swift in Sources */,
 				8AD27CE2265F1CA600062963 /* APIFlickr.swift in Sources */,
 				8AD27CEE265F1F0F00062963 /* GalleryService.swift in Sources */,
+				5783CAC4274F091A0031E663 /* Cancelable.swift in Sources */,
 				8AD27CEF265F1F0F00062963 /* RESTService.swift in Sources */,
 				8AD27CEC265F1F0F00062963 /* PhotoSizeService.swift in Sources */,
 			);

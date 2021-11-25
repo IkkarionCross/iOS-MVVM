@@ -10,6 +10,13 @@ import XCTest
 import AppServices
 import FlickrEntities
 
+class DummyCancelable: Cancelable {
+    var cancelWasCalled: Bool = false
+    func cancel() {
+        cancelWasCalled = true
+    }
+}
+
 class GalleryServiceMock: PGalleryService {
     private var receivedSearchText: String?
     private var receivedPage: Int?
@@ -55,16 +62,17 @@ class PhotoSizeServiceMock: PPhotoSizeService {
     private var receivedPhotoId: String?
     private(set) var fetchLargeSquarePhotoUrlWasCalled: Bool = false
     var result: Completion<[PPhotoSizeModel]>
+    var task: Cancelable?
     
     init() {
         self.result = .failure(NetworkError.invalidDataReceived(requestDescription: "FetchPhotos"))
     }
     
-    func fetchSizes(forPhotoId photoId: String, _ completion: @escaping (Completion<[PPhotoSizeModel]>) -> Void) throws -> NetworkTask? {
+    func fetchSizes(forPhotoId photoId: String, _ completion: @escaping (Completion<[PPhotoSizeModel]>) -> Void) throws -> Cancelable? {
         self.receivedPhotoId = photoId
         self.fetchLargeSquarePhotoUrlWasCalled = true
         completion(result)
-        return nil
+        return task
     }
     
     func checkfetchLargeSquarePhotoUrl(expectedPhotoId: String) {

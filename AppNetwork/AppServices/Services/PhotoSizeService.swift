@@ -10,7 +10,7 @@ import FlickrEntities
 import Alamofire
 
 public protocol PPhotoSizeService {
-    func fetchSizes(forPhotoId photoId: String, _ completion: @escaping (Completion<[PPhotoSizeModel]>) -> Void) throws -> NetworkTask?
+    func fetchSizes(forPhotoId photoId: String, _ completion: @escaping (Completion<[PPhotoSizeModel]>) -> Void) throws -> Cancelable?
 }
 
 public class PhotoSizeService {
@@ -28,7 +28,7 @@ public class PhotoSizeService {
 }
 
 extension PhotoSizeService: PPhotoSizeService {
-    public func fetchSizes(forPhotoId photoId: String, _ completion: @escaping (Completion<[PPhotoSizeModel]>) -> Void) throws -> NetworkTask? {
+    public func fetchSizes(forPhotoId photoId: String, _ completion: @escaping (Completion<[PPhotoSizeModel]>) -> Void) throws -> Cancelable? {
         if let photoSizes = try photoDAO.photo(forId: photoId)?.sizes,
            !photoSizes.isEmpty {
             completion(.success(photoSizes))

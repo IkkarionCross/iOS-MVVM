@@ -20,32 +20,38 @@ class GalleryViewModel {
     private let galleryService: PGalleryService!
     private let sizeService   : PPhotoSizeService!
     
-    private var tasks: [Int: NetworkTask] = [:]
+    private var tasks: [Int: Cancelable] = [:]
+    private let limitToLoadNewPages: Int
     
     private var downlimit: Int {
-        return results.count - 60
+        return results.count - limitToLoadNewPages
     }
     
     var isLoading: Bool = false
     
     var nextPage: Int {
-        return lastLoadedPage + 1
+        let newPage = lastLoadedPage + 1
+        if newPage > pages {
+            return lastLoadedPage
+        }
+        return newPage
     }
     
     var itemCount: Int {
         return results.count
     }
     
-    init(galleryService: PGalleryService, sizeService: PPhotoSizeService) {
+    init(galleryService: PGalleryService, sizeService: PPhotoSizeService, limitToLoadNewPages: Int = 60) {
         self.galleryService = galleryService
         self.sizeService = sizeService
         self.lastSearchText = ""
+        self.limitToLoadNewPages = limitToLoadNewPages
     }
     
     private func setResults(photoPage: PPhotoPageModel) {
         self.results = Array(photoPage.photos)
         self.perPage = Int(photoPage.perPage)
-        self.pages = 100
+        self.pages = photoPage.pages
         self.lastLoadedPage = Int(photoPage.page)
         self.isLoading = false
     }
@@ -54,7 +60,7 @@ class GalleryViewModel {
         self.results.append(contentsOf: Array(photoPage.photos))
         self.lastLoadedPage = Int(photoPage.page)
         self.perPage = Int(photoPage.perPage)
-        self.pages = 100
+        self.pages = photoPage.pages
     }
     
     func getPhoto(forIndex index: Int) -> PhotoViewModel {
@@ -65,6 +71,7 @@ class GalleryViewModel {
         self.isLoading = true
         self.lastSearchText = text
         try galleryService.search(text: text) { result in
+            self.isLoading = false
             switch result {
             case let .success(photoPage):
                 self.setResults(photoPage: photoPage)
@@ -86,6 +93,7 @@ class GalleryViewModel {
         }
         
         try galleryService.fetchPhotos(searchText: searchText, page: page) { result in
+            self.isLoading = false
             switch result {
             case let .success(photoPage):
                 var oldResults = [PPhotoModel]()

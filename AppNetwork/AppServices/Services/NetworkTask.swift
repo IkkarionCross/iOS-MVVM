@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-public class NetworkTask {
+public class NetworkTask: Cancelable {
     
     private weak var request: DataRequest?
     

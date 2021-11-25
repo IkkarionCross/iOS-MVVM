@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5783CAC9274FDDE90031E663 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5783CAC8274FDDE90031E663 /* LoginViewController.swift */; };
 		578BA6F22714DBCB00495445 /* LoginModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 578BA6E92714DBCA00495445 /* LoginModule.framework */; };
 		578BA6F82714DBCB00495445 /* LoginModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 578BA6EC2714DBCA00495445 /* LoginModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		578BA7022714DBEC00495445 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578BA7012714DBEC00495445 /* LoginViewController.swift */; };
 		578BA7042714DC6200495445 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578BA7032714DC6200495445 /* LoginCoordinator.swift */; };
 		57C3795A2720E52900DC0E90 /* Coordinator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57C379592720E52900DC0E90 /* Coordinator.framework */; };
 		57C3795B2720E52900DC0E90 /* Coordinator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57C379592720E52900DC0E90 /* Coordinator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -40,10 +40,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5783CAC8274FDDE90031E663 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		578BA6E92714DBCA00495445 /* LoginModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LoginModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		578BA6EC2714DBCA00495445 /* LoginModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginModule.h; sourceTree = "<group>"; };
 		578BA6F12714DBCB00495445 /* LoginModuleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoginModuleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		578BA7012714DBEC00495445 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../../LoginViewController.swift; sourceTree = "<group>"; };
 		578BA7032714DC6200495445 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		57C379592720E52900DC0E90 /* Coordinator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Coordinator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -90,8 +90,8 @@
 		578BA6EB2714DBCA00495445 /* LoginModule */ = {
 			isa = PBXGroup;
 			children = (
+				5783CAC8274FDDE90031E663 /* LoginViewController.swift */,
 				578BA6EC2714DBCA00495445 /* LoginModule.h */,
-				578BA7012714DBEC00495445 /* LoginViewController.swift */,
 				578BA7032714DC6200495445 /* LoginCoordinator.swift */,
 			);
 			path = LoginModule;
@@ -223,8 +223,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5783CAC9274FDDE90031E663 /* LoginViewController.swift in Sources */,
 				578BA7042714DC6200495445 /* LoginCoordinator.swift in Sources */,
-				578BA7022714DBEC00495445 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

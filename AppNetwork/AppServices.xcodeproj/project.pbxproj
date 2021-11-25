@@ -10,6 +10,7 @@
 		513FCB88C1BBBA79F42CF000 /* Pods_AppServicesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5D2B44944650D675AD7BA8 /* Pods_AppServicesTests.framework */; };
 		576485A726C19650005B0EED /* RESTServiceSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576485A626C19650005B0EED /* RESTServiceSession.swift */; };
 		5783CAC4274F091A0031E663 /* Cancelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5783CAC3274F091A0031E663 /* Cancelable.swift */; };
+		5783CAC7274F23AB0031E663 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = 5783CAC6274F23AB0031E663 /* OHHTTPStubs */; };
 		57BA4A9B270F8DAC005CDAF0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 57BA4A9A270F8DAC005CDAF0 /* Alamofire */; };
 		57D2D2AC26CB4EF60058AA1E /* MockSearchDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D2D2AA26CB4ECE0058AA1E /* MockSearchDAO.swift */; };
 		57D2D2B926CC95250058AA1E /* StubPhotoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D2D2B826CC95250058AA1E /* StubPhotoPage.swift */; };
@@ -101,6 +102,7 @@
 				57BA4A9B270F8DAC005CDAF0 /* Alamofire in Frameworks */,
 				8AD27D54265F21C700062963 /* FlickrEntities.framework in Frameworks */,
 				5C417731B3F18B1B8DABF120 /* Pods_AppServices.framework in Frameworks */,
+				5783CAC7274F23AB0031E663 /* OHHTTPStubs in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +272,7 @@
 			name = AppServices;
 			packageProductDependencies = (
 				57BA4A9A270F8DAC005CDAF0 /* Alamofire */,
+				5783CAC6274F23AB0031E663 /* OHHTTPStubs */,
 			);
 			productName = AppNetwork;
 			productReference = 8AD27CB7265F1BFD00062963 /* AppServices.framework */;
@@ -323,6 +326,7 @@
 			mainGroup = 8AD27CAD265F1BFD00062963;
 			packageReferences = (
 				57BA4A99270F8DAC005CDAF0 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				5783CAC5274F23AB0031E663 /* XCRemoteSwiftPackageReference "OHHTTPStubs" */,
 			);
 			productRefGroup = 8AD27CB8265F1BFD00062963 /* Products */;
 			projectDirPath = "";
@@ -707,6 +711,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5783CAC5274F23AB0031E663 /* XCRemoteSwiftPackageReference "OHHTTPStubs" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AliSoftware/OHHTTPStubs.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		57BA4A99270F8DAC005CDAF0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -718,6 +730,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5783CAC6274F23AB0031E663 /* OHHTTPStubs */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5783CAC5274F23AB0031E663 /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
+			productName = OHHTTPStubs;
+		};
 		57BA4A9A270F8DAC005CDAF0 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 57BA4A99270F8DAC005CDAF0 /* XCRemoteSwiftPackageReference "Alamofire" */;

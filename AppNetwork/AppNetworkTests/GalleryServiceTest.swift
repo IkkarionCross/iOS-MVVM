@@ -32,7 +32,7 @@ class GalleryServiceTest: XCTestCase {
             return HTTPStubsResponse(jsonObject: obj, statusCode: 200, headers: nil)
         }
         let searchResult = StubSearchResult(createdAt: Date(), searchText: "cat", pages: [])
-        let expectedPhotoPage = StubPhotoPage(page: 1, perPage: 100, photos: [], search: searchResult)
+        let expectedPhotoPage = StubPhotoPage(pages: 1, page: 1, perPage: 100, photos: [], search: searchResult)
         
         let expectation = expectation(description: "Expect Image Search")
 

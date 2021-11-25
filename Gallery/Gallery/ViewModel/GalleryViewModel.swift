@@ -41,6 +41,10 @@ class GalleryViewModel {
         return results.count
     }
     
+    var imageSizeTasksCount: Int {
+        return tasks.count
+    }
+    
     init(galleryService: PGalleryService, sizeService: PPhotoSizeService, limitToLoadNewPages: Int = 60) {
         self.galleryService = galleryService
         self.sizeService = sizeService
@@ -109,28 +113,27 @@ class GalleryViewModel {
         }
     }
     
-    func fetchImage(forPhoto photo: PhotoViewModel, inRow photoIndex: Int,
-                                   inIndexPath indexPath: IndexPath,
+    func fetchImage(forPhoto photo: PhotoViewModel, inIndexPath indexPath: IndexPath,
                                    _ completion: @escaping (Completion<PPhotoSizeModel>) -> Void) throws {
         let task = try sizeService.fetchSizes(forPhotoId: photo.id) { result in
+            self.tasks.removeValue(forKey: indexPath.row)
             switch result {
             case let .success(results):
                 guard let photoSize = results.first(where: { size in size.type == "Large Square" }) else {
                     return completion(.failure(DefaultError.unkwonError(title: "Photo without correct size")))
                 }
-                
                 completion(.success(photoSize))
                 
             case let .failure(error):
                 completion(.failure(error))
             }
         }
-        
         self.tasks[indexPath.row] = task
     }
     
     func cancelImageRequest(forIndexPath indexPath: IndexPath) {
         self.tasks[indexPath.row]?.cancel()
+        self.tasks.removeValue(forKey: indexPath.row)
     }
     
     func shouldFetchNextPage(displayingCurrentItem row: Int) -> Bool {

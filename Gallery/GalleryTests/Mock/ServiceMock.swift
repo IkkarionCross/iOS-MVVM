@@ -63,6 +63,7 @@ class PhotoSizeServiceMock: PPhotoSizeService {
     private(set) var fetchLargeSquarePhotoUrlWasCalled: Bool = false
     var result: Completion<[PPhotoSizeModel]>
     var task: Cancelable?
+    var deadlineAsync: Double  = 0.0
     
     init() {
         self.result = .failure(NetworkError.invalidDataReceived(requestDescription: "FetchPhotos"))
@@ -71,7 +72,9 @@ class PhotoSizeServiceMock: PPhotoSizeService {
     func fetchSizes(forPhotoId photoId: String, _ completion: @escaping (Completion<[PPhotoSizeModel]>) -> Void) throws -> Cancelable? {
         self.receivedPhotoId = photoId
         self.fetchLargeSquarePhotoUrlWasCalled = true
-        completion(result)
+        DispatchQueue.main.asyncAfter(deadline: .now() + deadlineAsync) {
+            completion(self.result)
+        }
         return task
     }
     

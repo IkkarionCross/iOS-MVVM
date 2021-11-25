@@ -126,7 +126,7 @@ class FlickrGalleryViewController: UICollectionViewController {
         }
         
         do {
-            try self.viewModel.fetchImage(forPhoto: photo, inRow: indexPath.row,
+            try self.viewModel.fetchImage(forPhoto: photo,
                                                      inIndexPath: indexPath) { result in
                 switch result {
                 case let .success(photoSize):

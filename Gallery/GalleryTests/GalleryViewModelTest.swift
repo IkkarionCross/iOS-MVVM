@@ -105,4 +105,28 @@ class GalleryViewModelTest: XCTestCase {
         
         XCTAssertTrue(sut.shouldFetchNextPage(displayingCurrentItem: 2))
     }
+    
+    func testShouldCancelImageSizeTask() throws {
+        let photo = PhotoMock(id: "1234", title: "teste", sizes: [])
+        let photoSizeMock = PhotoSizeMock(type: "Large Square", url: "")
+        let photoViewModel = PhotoViewModel(photo: photo)
+        let indexPath = IndexPath(row: 0, section: 1)
+        let expectedResult = Completion<[PPhotoSizeModel]>.success([photoSizeMock])
+        let dummyCancelable = DummyCancelable()
+        var expectedTaskCount = 1
+        
+        photoSizeServiceMock.result = expectedResult
+        photoSizeServiceMock.deadlineAsync = 3.0
+        photoSizeServiceMock.task = dummyCancelable
+        
+        try sut.fetchImage(forPhoto: photoViewModel, inIndexPath: indexPath) { result in }
+        
+        XCTAssertEqual(expectedTaskCount, sut.imageSizeTasksCount)
+        
+        sut.cancelImageRequest(forIndexPath: IndexPath(row: 0, section: 1))
+        
+        expectedTaskCount = 0
+        XCTAssertEqual(expectedTaskCount, sut.imageSizeTasksCount)
+        XCTAssertTrue(dummyCancelable.cancelWasCalled)
+    }
 }

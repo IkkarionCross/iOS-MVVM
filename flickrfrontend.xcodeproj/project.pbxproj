@@ -116,13 +116,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		30CE5D21D1346A276CCC2690 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		8AC8C855265992F0004EBC3C = {
 			isa = PBXGroup;
 			children = (
@@ -130,7 +123,6 @@
 				8AC8C87A265992F9004EBC3C /* flickrfrontendTests */,
 				8AC8C885265992F9004EBC3C /* flickrfrontendUITests */,
 				8AC8C85F265992F0004EBC3C /* Products */,
-				30CE5D21D1346A276CCC2690 /* Pods */,
 				ADE0ED28E9DC8151F088C89C /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -283,7 +275,7 @@
 			);
 			mainGroup = 8AC8C855265992F0004EBC3C;
 			packageReferences = (
-				57BA4AC0270F9C10005CDAF0 /* XCRemoteSwiftPackageReference "Kingfisher.git" */,
+				57BA4AC0270F9C10005CDAF0 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 8AC8C85F265992F0004EBC3C /* Products */;
 			projectDirPath = "";
@@ -667,7 +659,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		57BA4AC0270F9C10005CDAF0 /* XCRemoteSwiftPackageReference "Kingfisher.git" */ = {
+		57BA4AC0270F9C10005CDAF0 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -680,7 +672,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		57BA4AC1270F9C10005CDAF0 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 57BA4AC0270F9C10005CDAF0 /* XCRemoteSwiftPackageReference "Kingfisher.git" */;
+			package = 57BA4AC0270F9C10005CDAF0 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */

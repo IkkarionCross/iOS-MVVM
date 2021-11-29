@@ -21,9 +21,9 @@ class OnboardingViewController: UIViewController {
     }()
     
     private lazy var actionButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle(viewModel.actionButtonTitle, for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
         

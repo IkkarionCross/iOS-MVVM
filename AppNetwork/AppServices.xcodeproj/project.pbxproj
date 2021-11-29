@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		513FCB88C1BBBA79F42CF000 /* Pods_AppServicesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5D2B44944650D675AD7BA8 /* Pods_AppServicesTests.framework */; };
-		576485A726C19650005B0EED /* RESTServiceSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576485A626C19650005B0EED /* RESTServiceSession.swift */; };
 		5783CAC4274F091A0031E663 /* Cancelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5783CAC3274F091A0031E663 /* Cancelable.swift */; };
 		5783CAC7274F23AB0031E663 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = 5783CAC6274F23AB0031E663 /* OHHTTPStubs */; };
 		57BA4A9B270F8DAC005CDAF0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 57BA4A9A270F8DAC005CDAF0 /* Alamofire */; };
@@ -16,7 +15,6 @@
 		57D2D2B926CC95250058AA1E /* StubPhotoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D2D2B826CC95250058AA1E /* StubPhotoPage.swift */; };
 		57D2D2BB26CC95FD0058AA1E /* StubSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D2D2BA26CC95FD0058AA1E /* StubSearchResult.swift */; };
 		57EA9EC826C9EC5B00D4CEA5 /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA9EC726C9EC5B00D4CEA5 /* NetworkTask.swift */; };
-		5C417731B3F18B1B8DABF120 /* Pods_AppServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD4401B8CF791E870AA63AC /* Pods_AppServices.framework */; };
 		8A4BC3FE266AB6D0003433CD /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4BC3FD266AB6D0003433CD /* DataService.swift */; };
 		8AD27CC1265F1BFE00062963 /* AppServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD27CB7265F1BFD00062963 /* AppServices.framework */; };
 		8AD27CC6265F1BFE00062963 /* GalleryServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD27CC5265F1BFE00062963 /* GalleryServiceTest.swift */; };
@@ -56,7 +54,6 @@
 
 /* Begin PBXFileReference section */
 		2A5D2B44944650D675AD7BA8 /* Pods_AppServicesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppServicesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		576485A626C19650005B0EED /* RESTServiceSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTServiceSession.swift; sourceTree = "<group>"; };
 		5783CAC3274F091A0031E663 /* Cancelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cancelable.swift; sourceTree = "<group>"; };
 		57D2D2AA26CB4ECE0058AA1E /* MockSearchDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSearchDAO.swift; sourceTree = "<group>"; };
 		57D2D2B826CC95250058AA1E /* StubPhotoPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubPhotoPage.swift; sourceTree = "<group>"; };
@@ -90,7 +87,6 @@
 			files = (
 				57BA4A9B270F8DAC005CDAF0 /* Alamofire in Frameworks */,
 				8AD27D54265F21C700062963 /* FlickrEntities.framework in Frameworks */,
-				5C417731B3F18B1B8DABF120 /* Pods_AppServices.framework in Frameworks */,
 				5783CAC7274F23AB0031E663 /* OHHTTPStubs in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,7 +193,6 @@
 				8AD27CEA265F1F0F00062963 /* GalleryService.swift */,
 				8AD27CEB265F1F0F00062963 /* RESTService.swift */,
 				8A4BC3FD266AB6D0003433CD /* DataService.swift */,
-				576485A626C19650005B0EED /* RESTServiceSession.swift */,
 				57EA9EC726C9EC5B00D4CEA5 /* NetworkTask.swift */,
 			);
 			path = Services;
@@ -365,7 +360,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				57D2D2BB26CC95FD0058AA1E /* StubSearchResult.swift in Sources */,
-				576485A726C19650005B0EED /* RESTServiceSession.swift in Sources */,
 				57EA9EC826C9EC5B00D4CEA5 /* NetworkTask.swift in Sources */,
 				57D2D2B926CC95250058AA1E /* StubPhotoPage.swift in Sources */,
 				8AD27CE3265F1CA600062963 /* Router.swift in Sources */,

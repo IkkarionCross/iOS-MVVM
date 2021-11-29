@@ -8,6 +8,7 @@
 import UIKit
 import Kingfisher
 import Coordinator
+import common
 
 class FlickrGalleryViewController: UICollectionViewController {
     
@@ -18,32 +19,14 @@ class FlickrGalleryViewController: UICollectionViewController {
       bottom: 50.0,
       right: 20.0)
     
-    private var placeHolderImage: UIImage = UIImage(systemName: "photo")!
+    var indicatorView: UIActivityIndicatorView?
     
-    private let indicatorView: UIActivityIndicatorView = UIActivityIndicatorView(style: .medium)
-    
-    private lazy var searchBar: UISearchBar = {
-        let searchBar: UISearchBar = UISearchBar()
-        searchBar.placeholder = "Search Image..."
-        searchBar.sizeToFit()
-        searchBar.delegate = self
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
-        
-        return searchBar
-    }()
-    
-    private lazy var searchController: UISearchController = {
-        let searchController: UISearchController = UISearchController()
-        searchController.searchBar.placeholder = "Search Image..."
-        searchController.searchBar.delegate = self
-        
-        return searchController
+    private lazy var searchController: GallerySearchController = {
+        return GallerySearchController(delegate: self)
     }()
     
     var viewModel: GalleryViewModel!
     
-    // mover logica para dentro do viewmodel. O viewModel precisa de um delegate para aviasr ao viewcontroller para
-    // carregar os resultados
     var searchText: String = "" {
         didSet {
            displayActivityIndicator()
@@ -57,10 +40,7 @@ class FlickrGalleryViewController: UICollectionViewController {
                     switch result {
                     case .success():
                         DispatchQueue.main.async { [weak self] in
-                            
-                            
                             self?.collectionView.reloadData()
-                            
                             self?.hideActivityIndicator()
                         }
                     case let .failure(error):
@@ -96,7 +76,7 @@ class FlickrGalleryViewController: UICollectionViewController {
         self.collectionView.dataSource = self
         self.collectionView.allowsSelection = true
         
-        navigationItem.searchController = searchController
+        navigationItem.searchController = searchController.controller
     }
     
     override func didReceiveMemoryWarning() {
@@ -104,35 +84,26 @@ class FlickrGalleryViewController: UICollectionViewController {
         ImageCache.default.clearDiskCache()
     }
     
-    private func displayActivityIndicator() {
-        view.addSubview(indicatorView)
-        indicatorView.center = view.center
-        
-        indicatorView.startAnimating()
-    }
-    
-    private func hideActivityIndicator() {
-        indicatorView.stopAnimating()
-        indicatorView.removeFromSuperview()
-    }
-    
-    func loadImage(forCell cell: FlickrPhotoCell, inIndexPath indexPath: IndexPath) {
+    private func loadImage(forCell cell: FlickrPhotoCell, inIndexPath indexPath: IndexPath) {
         let photo = viewModel.getPhoto(forIndex: indexPath.row)
         if let url = photo.largeSquareImageUrl,
            ImageCache.default.isCached(forKey: url)
         {
-            cell.setImage(withUrl: URL(string: url)!, andPlaceHolder: placeHolderImage)
+            cell.setImage(withUrl: photo.url!)
             return
         }
         
         do {
+            // deveria ter o completion com o mesmo PhotoViewModel enviado
+            // Dessa forma daria para pegar a url mais facilmente e corretamente a partir do VM
+            // Não seria necessário o if let em caso de sucesso, ou retornar só a url em caso de sucesso.
             try self.viewModel.fetchImage(forPhoto: photo,
                                                      inIndexPath: indexPath) { result in
                 switch result {
                 case let .success(photoSize):
-                    DispatchQueue.main.async { [weak self] in
+                    DispatchQueue.main.async {
                         if let url = URL(string: photoSize.url) {
-                            cell.setImage(withUrl: url, andPlaceHolder: self?.placeHolderImage)
+                            cell.setImage(withUrl: url)
                         }
                     }
                 case let .failure(error):
@@ -164,7 +135,7 @@ extension FlickrGalleryViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let photo = viewModel.getPhoto(forIndex: indexPath.row)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FlickrPhotoCell.reuseIdentifier, for: indexPath) as! FlickrPhotoCell
-        cell.configure(withPhoto: photo, imagePlaceHolder: placeHolderImage, router: self.coordinator)
+        cell.configure(withPhoto: photo, router: self.coordinator)
         return cell
     }
     
@@ -173,8 +144,12 @@ extension FlickrGalleryViewController {
         
         self.loadImage(forCell: flickrCell, inIndexPath: indexPath)
         
-        if viewModel.shouldFetchNextPage(displayingCurrentItem: indexPath.row) {
-            try! self.viewModel.fetchPhotos(page: self.viewModel.nextPage) { result in
+        if !viewModel.shouldFetchNextPage(displayingCurrentItem: indexPath.row) {
+            return
+        }
+        // load more photos
+        do {
+            try self.viewModel.fetchPhotos(page: self.viewModel.nextPage) { result in
                 switch result {
                 case .success():
                     DispatchQueue.main.async { [weak self] in
@@ -184,12 +159,15 @@ extension FlickrGalleryViewController {
                     print(error.localizedDescription)
                 }
             }
+        } catch {
+            print(error.localizedDescription)
         }
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let flickCell = cell as! FlickrPhotoCell
-        flickCell.clearForReuse(withPlaceHolder: placeHolderImage)
+        flickCell.clearForReuse()
         self.viewModel.cancelImageRequest(forIndexPath: indexPath)
     }
     
@@ -216,3 +194,5 @@ extension FlickrGalleryViewController: UISearchBarDelegate {
         self.searchText = searchBar.text ?? ""
     }
 }
+
+extension FlickrGalleryViewController: Indictable {}

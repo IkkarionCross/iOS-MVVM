@@ -23,6 +23,13 @@ struct PhotoViewModel {
         return photo.sizes.first { $0.type ==  "Large Square" }?.url
     }
     
+    var url: URL? {
+        if let stringURL = largeSquareImageUrl {
+            return URL(string: stringURL)!
+        }
+        return nil
+    }
+    
     
     init(photo: PPhotoModel) {
         self.photo = photo

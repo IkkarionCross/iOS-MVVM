@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		573D472627556C1D0019A6E0 /* GallerySearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573D472527556C1D0019A6E0 /* GallerySearchController.swift */; };
+		573D474C27556D7D0019A6E0 /* common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 573D474B27556D7D0019A6E0 /* common.framework */; };
+		573D474D27556D7D0019A6E0 /* common.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 573D474B27556D7D0019A6E0 /* common.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5783CA7C274EFF4A0031E663 /* Gallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5783CA73274EFF4A0031E663 /* Gallery.framework */; };
 		5783CA82274EFF4A0031E663 /* Gallery.h in Headers */ = {isa = PBXBuildFile; fileRef = 5783CA76274EFF4A0031E663 /* Gallery.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5783CA92274EFFF10031E663 /* FlickrPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5783CA8B274EFFF00031E663 /* FlickrPhotoCell.swift */; };
@@ -47,6 +50,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				5783CAA0274F00490031E663 /* AppServices.framework in Embed Frameworks */,
+				573D474D27556D7D0019A6E0 /* common.framework in Embed Frameworks */,
 				5783CAA4274F00490031E663 /* FlickrEntities.framework in Embed Frameworks */,
 				5783CAA2274F00490031E663 /* Coordinator.framework in Embed Frameworks */,
 			);
@@ -56,6 +60,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		573D472527556C1D0019A6E0 /* GallerySearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallerySearchController.swift; sourceTree = "<group>"; };
+		573D474B27556D7D0019A6E0 /* common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5783CA73274EFF4A0031E663 /* Gallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Gallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5783CA76274EFF4A0031E663 /* Gallery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Gallery.h; sourceTree = "<group>"; };
 		5783CA7B274EFF4A0031E663 /* GalleryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GalleryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +88,7 @@
 			files = (
 				5783CAB9274F02750031E663 /* Kingfisher in Frameworks */,
 				5783CA9F274F00490031E663 /* AppServices.framework in Frameworks */,
+				573D474C27556D7D0019A6E0 /* common.framework in Frameworks */,
 				5783CAA3274F00490031E663 /* FlickrEntities.framework in Frameworks */,
 				5783CAA1274F00490031E663 /* Coordinator.framework in Frameworks */,
 			);
@@ -144,6 +151,7 @@
 		5783CA9B274F00490031E663 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				573D474B27556D7D0019A6E0 /* common.framework */,
 				5783CA9C274F00490031E663 /* AppServices.framework */,
 				5783CA9D274F00490031E663 /* Coordinator.framework */,
 				5783CA9E274F00490031E663 /* FlickrEntities.framework */,
@@ -155,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				5783CAAF274F017C0031E663 /* PhotoDetailView.swift */,
+				573D472527556C1D0019A6E0 /* GallerySearchController.swift */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -302,6 +311,7 @@
 				5783CA93274EFFF10031E663 /* PhotoDetailViewController.swift in Sources */,
 				5783CAB6274F01A60031E663 /* PhotoViewModel.swift in Sources */,
 				5783CA96274EFFF10031E663 /* FlickrGalleryViewController.swift in Sources */,
+				573D472627556C1D0019A6E0 /* GallerySearchController.swift in Sources */,
 				5783CA92274EFFF10031E663 /* FlickrPhotoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

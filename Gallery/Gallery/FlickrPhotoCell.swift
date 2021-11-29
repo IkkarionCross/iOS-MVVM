@@ -11,6 +11,8 @@ import Kingfisher
 class FlickrPhotoCell: UICollectionViewCell {
     static let reuseIdentifier = "FlickrCell"
     
+    private var placeHolderImage: UIImage = UIImage(systemName: "photo")!
+    
     lazy var photoTitle: UILabel = {
         let label: UILabel = UILabel(frame: .zero)
         label.textAlignment = .center
@@ -41,20 +43,19 @@ class FlickrPhotoCell: UICollectionViewCell {
     }
     
     func configure(withPhoto photo: PhotoViewModel,
-                   imagePlaceHolder: UIImage?=nil,
                    router: GalleryCoordinator?) {
         self.photoTitle.text = photo.title
-        image.image = imagePlaceHolder
+        image.image = placeHolderImage
         let gestureRecognizer = UITapGestureRecognizer(target: self,
                                                        action: #selector(openImageView))
         image.addGestureRecognizer(gestureRecognizer)
         self.router = router
     }
     
-    func setImage(withUrl url: URL, andPlaceHolder placeHolder: UIImage?) {
+    func setImage(withUrl url: URL) {
         let imageResource = ImageResource(downloadURL: url)
         let processor = DownsamplingImageProcessor(size: image.bounds.size)
-        image.kf.setImage(with: imageResource, placeholder: placeHolder,
+        image.kf.setImage(with: imageResource, placeholder: placeHolderImage,
                                options:
                                 [
                                     .processor(processor),
@@ -65,7 +66,7 @@ class FlickrPhotoCell: UICollectionViewCell {
     
     @objc func openImageView() {}
     
-    func clearForReuse(withPlaceHolder placeHolderImage: UIImage?) {
+    func clearForReuse() {
         image.image = placeHolderImage
         image.kf.cancelDownloadTask()
         photoTitle.text = ""

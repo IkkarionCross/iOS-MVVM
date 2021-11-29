@@ -13,23 +13,21 @@ class LoginViewController: UIViewController {
     var coordinator: LoginCoordinator?
     
     private lazy var loginButton: UIButton = {
-        let button: UIButton = UIButton()
+        let button: UIButton = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Login", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.addTarget(self, action: #selector(onLoginTapped), for: .touchUpInside)
-        button.backgroundColor = UIColor.systemBlue
-        button.setTitleColor(.black, for: .normal)
         
         return button
     }()
     
     private lazy var registerButton: UIButton = {
-        let button: UIButton = UIButton()
+        let button: UIButton = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Register", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.addTarget(self, action: #selector(onRegisterTapped), for: .touchUpInside)
-        button.backgroundColor = UIColor.systemBlue
-        button.setTitleColor(.black, for: .normal)
         
         return button
     }()
@@ -46,7 +44,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .blue
+        view.backgroundColor = .white
         
         arrangeViews()
     }

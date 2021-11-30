@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:common/common.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Gallery/Gallery.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Onboarding/Onboarding.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Coordinator/Coordinator.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:LoginModule/LoginModule.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:AppNetwork/AppServices.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:FlickrEntities/FlickrEntities.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:flickrfrontend.xcodeproj">
+   </FileRef>
+</Workspace>

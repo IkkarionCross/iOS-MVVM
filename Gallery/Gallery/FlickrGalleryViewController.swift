@@ -86,25 +86,19 @@ class FlickrGalleryViewController: UICollectionViewController {
     
     private func loadImage(forCell cell: FlickrPhotoCell, inIndexPath indexPath: IndexPath) {
         let photo = viewModel.getPhoto(forIndex: indexPath.row)
-        if let url = photo.largeSquareImageUrl,
-           ImageCache.default.isCached(forKey: url)
+        if let url = photo.url,
+           ImageCache.default.isCached(forKey: url.absoluteString)
         {
-            cell.setImage(withUrl: photo.url!)
+            cell.setImage(withUrl: url)
             return
         }
         
         do {
-            // deveria ter o completion com o mesmo PhotoViewModel enviado
-            // Dessa forma daria para pegar a url mais facilmente e corretamente a partir do VM
-            // Não seria necessário o if let em caso de sucesso, ou retornar só a url em caso de sucesso.
-            try self.viewModel.fetchImage(forPhoto: photo,
-                                                     inIndexPath: indexPath) { result in
+            try self.viewModel.fetchImage(forPhoto: photo, inIndexPath: indexPath) { result in
                 switch result {
-                case let .success(photoSize):
+                case let .success(url):
                     DispatchQueue.main.async {
-                        if let url = URL(string: photoSize.url) {
-                            cell.setImage(withUrl: url)
-                        }
+                        cell.setImage(withUrl: url)
                     }
                 case let .failure(error):
                     print(error.localizedDescription)
@@ -147,8 +141,8 @@ extension FlickrGalleryViewController {
         if !viewModel.shouldFetchNextPage(displayingCurrentItem: indexPath.row) {
             return
         }
-        // load more photos
-        do {
+        
+        do { // load more photos
             try self.viewModel.fetchPhotos(page: self.viewModel.nextPage) { result in
                 switch result {
                 case .success():

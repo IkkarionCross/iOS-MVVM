@@ -114,7 +114,7 @@ class GalleryViewModel {
     }
     
     func fetchImage(forPhoto photo: PhotoViewModel, inIndexPath indexPath: IndexPath,
-                                   _ completion: @escaping (Completion<PPhotoSizeModel>) -> Void) throws {
+                                   _ completion: @escaping (Completion<URL>) -> Void) throws {
         let task = try sizeService.fetchSizes(forPhotoId: photo.id) { result in
             self.tasks.removeValue(forKey: indexPath.row)
             switch result {
@@ -122,7 +122,10 @@ class GalleryViewModel {
                 guard let photoSize = results.first(where: { size in size.type == "Large Square" }) else {
                     return completion(.failure(DefaultError.unkwonError(title: "Photo without correct size")))
                 }
-                completion(.success(photoSize))
+                guard let photoUrl = URL(string: photoSize.url) else {
+                    return completion(.failure(DefaultError.unkwonError(title: "Photo without url")))
+                }
+                completion(.success(photoUrl))
                 
             case let .failure(error):
                 completion(.failure(error))

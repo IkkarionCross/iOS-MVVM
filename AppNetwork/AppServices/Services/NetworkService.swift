@@ -17,6 +17,7 @@ protocol NetworkService: DataService {
 
 extension NetworkService {
     
+    @discardableResult
     internal func retrieveData(request: Router,
                       queue: DispatchQueue = DispatchQueue.global(),
                       completion: @escaping (_ result: Completion<DataType>) -> Void) throws -> NetworkTask {

@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let loginCoordinator = LoginCoordinator(context: context,
                                                 navController: navController)
-        let onboardingCoordinator = OnBoardingCoordinator(context: context, navController: loginCoordinator.loginNavController)
+        let onboardingCoordinator = OnBoardingCoordinator(navController: loginCoordinator.loginNavController)
         
         loginCoordinator.register(forFlow: .onboarding, withCoordinator: onboardingCoordinator)
         

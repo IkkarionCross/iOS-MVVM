@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		573D474F2756A3D50019A6E0 /* OnboardingScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573D474E2756A3D50019A6E0 /* OnboardingScreenFactory.swift */; };
+		573D47512756A4580019A6E0 /* OnBoardingCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573D47502756A4580019A6E0 /* OnBoardingCoordinatorTest.swift */; };
+		573D47542756A73F0019A6E0 /* UINavigationControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573D47532756A73F0019A6E0 /* UINavigationControllerMock.swift */; };
 		57596DEB27407D8C00747F3F /* OnboardingDecisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57596DEA27407D8C00747F3F /* OnboardingDecisionViewController.swift */; };
 		57596DED2740815D00747F3F /* OnboardingDecisionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57596DEC2740815D00747F3F /* OnboardingDecisionViewModel.swift */; };
 		576300632730274600ADA45A /* Onboarding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5763005A2730274500ADA45A /* Onboarding.framework */; };
 		576300692730274600ADA45A /* Onboarding.h in Headers */ = {isa = PBXBuildFile; fileRef = 5763005D2730274600ADA45A /* Onboarding.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		576300742730275000ADA45A /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576300732730275000ADA45A /* OnboardingCoordinator.swift */; };
-		576300752730275000ADA45A /* OneDocumentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576300722730275000ADA45A /* OneDocumentCoordinator.swift */; };
 		5763007A273027A900ADA45A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57630079273027A900ADA45A /* OnboardingViewController.swift */; };
 		5763007D273027B700ADA45A /* Coordinator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5763007C273027B700ADA45A /* Coordinator.framework */; };
 		5763007E273027B700ADA45A /* Coordinator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5763007C273027B700ADA45A /* Coordinator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -44,12 +46,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		573D474E2756A3D50019A6E0 /* OnboardingScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreenFactory.swift; sourceTree = "<group>"; };
+		573D47502756A4580019A6E0 /* OnBoardingCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingCoordinatorTest.swift; sourceTree = "<group>"; };
+		573D47532756A73F0019A6E0 /* UINavigationControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerMock.swift; sourceTree = "<group>"; };
 		57596DEA27407D8C00747F3F /* OnboardingDecisionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDecisionViewController.swift; sourceTree = "<group>"; };
 		57596DEC2740815D00747F3F /* OnboardingDecisionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDecisionViewModel.swift; sourceTree = "<group>"; };
 		5763005A2730274500ADA45A /* Onboarding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Onboarding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5763005D2730274600ADA45A /* Onboarding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Onboarding.h; sourceTree = "<group>"; };
 		576300622730274600ADA45A /* OnboardingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnboardingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		576300722730275000ADA45A /* OneDocumentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDocumentCoordinator.swift; sourceTree = "<group>"; };
 		576300732730275000ADA45A /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		57630079273027A900ADA45A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		5763007C273027B700ADA45A /* Coordinator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Coordinator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +80,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		573D47522756A72D0019A6E0 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				573D47532756A73F0019A6E0 /* UINavigationControllerMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		576300502730274500ADA45A = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +122,8 @@
 		576300662730274600ADA45A /* OnboardingTests */ = {
 			isa = PBXGroup;
 			children = (
+				573D47522756A72D0019A6E0 /* Mock */,
+				573D47502756A4580019A6E0 /* OnBoardingCoordinatorTest.swift */,
 			);
 			path = OnboardingTests;
 			sourceTree = "<group>";
@@ -135,7 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				576300732730275000ADA45A /* OnboardingCoordinator.swift */,
-				576300722730275000ADA45A /* OneDocumentCoordinator.swift */,
+				573D474E2756A3D50019A6E0 /* OnboardingScreenFactory.swift */,
 			);
 			path = router;
 			sourceTree = "<group>";
@@ -206,6 +220,7 @@
 					};
 					576300612730274600ADA45A = {
 						CreatedOnToolsVersion = 13.1;
+						LastSwiftMigration = 1310;
 					};
 				};
 			};
@@ -251,7 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57596DEB27407D8C00747F3F /* OnboardingDecisionViewController.swift in Sources */,
-				576300752730275000ADA45A /* OneDocumentCoordinator.swift in Sources */,
+				573D474F2756A3D50019A6E0 /* OnboardingScreenFactory.swift in Sources */,
 				5763007A273027A900ADA45A /* OnboardingViewController.swift in Sources */,
 				576300742730275000ADA45A /* OnboardingCoordinator.swift in Sources */,
 				576300812730289700ADA45A /* OnboardingViewModel.swift in Sources */,
@@ -263,6 +278,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				573D47542756A73F0019A6E0 /* UINavigationControllerMock.swift in Sources */,
+				573D47512756A4580019A6E0 /* OnBoardingCoordinatorTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +478,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7NR738GBA3;
@@ -474,6 +492,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.victor.amaro.OnboardingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -483,6 +502,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7NR738GBA3;
